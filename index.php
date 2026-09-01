@@ -18,6 +18,7 @@
 </head>
 
 <body>
+  <?php require __DIR__ . '/components/header.php'; ?>
 
   <section class="nea-catalog-section">
     <div class="nea-catalog-container">
@@ -668,6 +669,8 @@
       </div>
     </div>
   </div>
+
+  <?php require __DIR__ . '/components/footer.php'; ?>
 
   <script src="js/catalog.js"></script>
   
