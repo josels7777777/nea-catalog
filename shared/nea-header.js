@@ -17,7 +17,7 @@
 
             </div>
 
-            <div class="sticky-wrapper">
+            <div class="nea-global-header__sticky">
 
                 <!-- Main Header -->
                 <div class="nea-global-header__main">
