@@ -78,8 +78,9 @@
 
     background: #ffffff;
 
-    border-bottom:
-        3px solid rgba(140, 198, 234, 0.45);
+    box-shadow:
+        0 8px 10px -10px rgba(146, 25, 25, 0.041),
+        0 16px 22px -12px rgba(146, 25, 25, 0.11);
 }
 
 
@@ -150,7 +151,7 @@
 
     color: #020202;
 
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 400;
 
     white-space: nowrap;
@@ -521,7 +522,7 @@
         min-height: 52px;
         padding: 7px 28px;
 
-        font-size: 12px;
+        font-size: 15px;
         font-weight: 600;
         line-height: 1.25;
 
