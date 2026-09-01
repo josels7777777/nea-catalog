@@ -4,12 +4,17 @@
         <header class="nea-global-header">
 
             <!-- Announcement Bar -->
-            <div class="nea-global-header__announcement">
-                <div class="nea-global-header__announcement-inner">
+            <div class="nea-global-header__announcement-inner">
+
+                <span class="nea-global-header__announcement-first">
                     <strong>SUSPENDED STAGES INC.</strong>
                     <span> IS NOW </span>
-                    <strong>NATIONAL EXTERIOR ACCESS INC.</strong>
-                </div>
+                </span>
+
+                <strong class="nea-global-header__announcement-second">
+                    NATIONAL EXTERIOR ACCESS INC.
+                </strong>
+
             </div>
 
 

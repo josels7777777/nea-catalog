@@ -52,9 +52,11 @@
 
 .nea-global-header__announcement-inner {
     min-height: 32px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3px;
 
     padding: 7px 20px;
 
@@ -65,6 +67,10 @@
     line-height: 1.25;
 
     text-transform: uppercase;
+}
+
+.nea-global-header__announcement-first {
+    display: inline;
 }
 
 
@@ -520,13 +526,15 @@
 
     .nea-global-header__announcement-inner {
         min-height: 52px;
-        padding: 7px 28px;
 
-        font-size: 15px;
+        flex-direction: column;
+        gap: 0;
+
+        padding: 7px 20px;
+
+        font-size: 12px;
         font-weight: 600;
         line-height: 1.25;
-
-        flex-wrap: wrap;
     }
 
 
