@@ -1,152 +1,171 @@
 (function () {
 
     const HEADER_HTML = `
-        <header class="nea-global-header">
+        <!-- =====================================================
+     ANNOUNCEMENT BAR
+     This stays in the normal document flow
+===================================================== -->
 
-            <!-- Announcement Bar -->
-            <div class="nea-global-header__announcement-inner">
+<div class="nea-global-header__announcement">
 
-                <span class="nea-global-header__announcement-first">
-                    <strong>SUSPENDED STAGES INC.</strong>
-                    <span> IS NOW </span>
-                </span>
+    <div class="nea-global-header__announcement-inner">
 
-                <strong class="nea-global-header__announcement-second">
-                    NATIONAL EXTERIOR ACCESS INC.
-                </strong>
+        <span class="nea-global-header__announcement-first">
+            <strong>SUSPENDED STAGES INC.</strong>
+            <span> IS NOW </span>
+        </span>
 
-            </div>
+        <strong class="nea-global-header__announcement-second">
+            NATIONAL EXTERIOR ACCESS INC.
+        </strong>
 
-            <div class="nea-global-header__sticky">
+    </div>
 
-                <!-- Main Header -->
-                <div class="nea-global-header__main">
-
-                    <div class="nea-global-header__inner">
-
-                        <!-- Logo -->
-                        <a
-                            class="nea-global-header__logo-link"
-                            href="https://www.nationalexterioraccess.com/"
-                            aria-label="National Exterior Access"
-                        >
-                            <img
-                                class="nea-global-header__logo"
-                                src="https://catalog.nationalexterioraccess.com/Assets/logo.svg"
-                                alt="National Exterior Access"
-                            >
-                        </a>
+</div>
 
 
-                        <!-- Catalog CTA — always visible on tablet/mobile -->
-                        <a
-                            class="nea-global-header__catalog-mobile"
-                            href="https://catalog.nationalexterioraccess.com/"
-                        >
-                            Catalog
-                        </a>
+<!-- =====================================================
+     GLOBAL HEADER
+     This whole block becomes sticky
+===================================================== -->
 
+<header class="nea-global-header">
 
-                        <!-- Desktop navigation -->
-                        <nav
-                            class="nea-global-header__desktop-nav"
-                            aria-label="Main navigation"
-                        >
+    <!-- Main Header -->
+    <div class="nea-global-header__main">
 
-                            <a href="https://www.nationalexterioraccess.com/about-us">
-                                About Us
-                            </a>
+        <div class="nea-global-header__inner">
 
-                            <a href="https://www.nationalexterioraccess.com/rentals">
-                                Rentals
-                            </a>
-
-                            <a href="https://www.nationalexterioraccess.com/permanent-systems">
-                                Permanent Systems
-                            </a>
-
-                            <a href="https://www.nationalexterioraccess.com/inspections">
-                                Inspections
-                            </a>
-
-                            <a href="https://www.nationalexterioraccess.com/training">
-                                Training
-                            </a>
-
-                            <a href="https://www.nationalexterioraccess.com/contact">
-                                Contact
-                            </a>
-
-                            <a
-                                class="nea-global-header__catalog-desktop"
-                                href="https://catalog.nationalexterioraccess.com/"
-                            >
-                                Catalog
-                            </a>
-
-                        </nav>
-
-
-                        <!-- Hamburger -->
-                        <button
-                            class="nea-global-header__toggle"
-                            type="button"
-                            aria-label="Open menu"
-                            aria-expanded="false"
-                            aria-controls="nea-global-mobile-menu"
-                        >
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </button>
-
-                    </div>
-                </div>
-
-
-                <!-- Tablet / Mobile menu -->
-                <div
-                    class="nea-global-header__mobile-menu"
-                    id="nea-global-mobile-menu"
+            <!-- Logo -->
+            <a
+                class="nea-global-header__logo-link"
+                href="https://www.nationalexterioraccess.com/"
+                aria-label="National Exterior Access"
+            >
+                <img
+                    class="nea-global-header__logo"
+                    src="https://catalog.nationalexterioraccess.com/Assets/logo.svg"
+                    alt="National Exterior Access"
                 >
+            </a>
 
-                    <nav
-                        class="nea-global-header__mobile-nav"
-                        aria-label="Mobile navigation"
-                    >
 
-                        <a href="https://www.nationalexterioraccess.com/about-us">
-                            About Us
-                        </a>
+            <!-- Catalog CTA
+                 Visible outside the hamburger on tablet/mobile -->
+            <a
+                class="nea-global-header__catalog-mobile"
+                href="https://catalog.nationalexterioraccess.com/"
+            >
+                Catalog
+            </a>
 
-                        <a href="https://www.nationalexterioraccess.com/rentals">
-                            Rentals
-                        </a>
 
-                        <a href="https://www.nationalexterioraccess.com/permanent-systems">
-                            Permanent Systems
-                        </a>
+            <!-- Desktop Navigation -->
+            <nav
+                class="nea-global-header__desktop-nav"
+                aria-label="Main navigation"
+            >
 
-                        <a href="https://www.nationalexterioraccess.com/inspections">
-                            Inspections
-                        </a>
+                <a href="https://www.nationalexterioraccess.com/about-us">
+                    About Us
+                </a>
 
-                        <a href="https://www.nationalexterioraccess.com/training">
-                            Training
-                        </a>
+                <a href="https://www.nationalexterioraccess.com/rentals">
+                    Rentals
+                </a>
 
-                        <a href="https://www.nationalexterioraccess.com/contact">
-                            Contact
-                        </a>
+                <a href="https://www.nationalexterioraccess.com/permanent-systems">
+                    Permanent Systems
+                </a>
 
-                    </nav>
+                <a href="https://www.nationalexterioraccess.com/inspections">
+                    Inspections
+                </a>
 
-                </div>
-            </div>
+                <a href="https://www.nationalexterioraccess.com/training">
+                    Training
+                </a>
 
-        </header>
+                <a href="https://www.nationalexterioraccess.com/contact">
+                    Contact
+                </a>
+
+
+                <!-- Catalog CTA - Desktop -->
+                <a
+                    class="nea-global-header__catalog-desktop"
+                    href="https://catalog.nationalexterioraccess.com/"
+                >
+                    Catalog
+                </a>
+
+            </nav>
+
+
+            <!-- Hamburger / Close Button -->
+            <button
+                class="nea-global-header__toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="nea-global-mobile-menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TABLET / MOBILE MENU
+         Part of the sticky header
+    ================================================== -->
+
+    <div
+        class="nea-global-header__mobile-menu"
+        id="nea-global-mobile-menu"
+    >
+
+        <nav
+            class="nea-global-header__mobile-nav"
+            aria-label="Mobile navigation"
+        >
+
+            <a href="https://www.nationalexterioraccess.com/about-us">
+                About Us
+            </a>
+
+            <a href="https://www.nationalexterioraccess.com/rentals">
+                Rentals
+            </a>
+
+            <a href="https://www.nationalexterioraccess.com/permanent-systems">
+                Permanent Systems
+            </a>
+
+            <a href="https://www.nationalexterioraccess.com/inspections">
+                Inspections
+            </a>
+
+            <a href="https://www.nationalexterioraccess.com/training">
+                Training
+            </a>
+
+            <a href="https://www.nationalexterioraccess.com/contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
     `;
 
 

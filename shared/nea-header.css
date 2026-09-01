@@ -4,59 +4,46 @@
 ========================================================= */
 
 
-/* =========================
-   HEADER ROOT
-========================= */
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
-.nea-global-header {
-    position: relative;
-    z-index: 5000;
-
+.nea-global-header,
+.nea-global-header__announcement {
     width: 100%;
-
-    background: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     color: #020202;
 }
 
-
 .nea-global-header *,
 .nea-global-header *::before,
-.nea-global-header *::after {
+.nea-global-header *::after,
+.nea-global-header__announcement *,
+.nea-global-header__announcement *::before,
+.nea-global-header__announcement *::after {
     box-sizing: border-box;
 }
-
 
 .nea-global-header a {
     text-decoration: none;
 }
 
-.nea-global-header__sticky {
-    position: sticky;
-    top: 0;
-    z-index: 5001;
-}
 
-
-
-/* =========================
+/* =========================================================
    ANNOUNCEMENT BAR
-========================= */
+   Normal document flow — NOT sticky
+========================================================= */
 
-.nea-global-header__announcement-inner {
-    width: 100%;
+.nea-global-header__announcement {
+    position: relative;
+    z-index: 5001;
 
     background: #b70707;
     color: #ffffff;
 }
 
-
 .nea-global-header__announcement-inner {
+    width: 100%;
     min-height: 32px;
 
     display: flex;
@@ -80,16 +67,25 @@
 }
 
 
+/* =========================================================
+   HEADER ROOT
+   Sticky header — announcement remains above and scrolls away
+========================================================= */
 
-/* =========================
-   MAIN HEADER
-========================= */
-
-.nea-global-header__main {
+.nea-global-header {
     position: sticky;
     top: 0;
-    z-index: 5001;
+    z-index: 5000;
 
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN HEADER
+========================================================= */
+
+.nea-global-header__main {
     width: 100%;
 
     background: #ffffff;
@@ -101,10 +97,8 @@
         0 14px 24px -14px rgba(146, 25, 25, 0.18);
 }
 
-
 .nea-global-header__inner {
     width: min(100%, 1400px);
-
     min-height: 106px;
 
     margin: 0 auto;
@@ -119,10 +113,9 @@
 }
 
 
-
-/* =========================
+/* =========================================================
    LOGO
-========================= */
+========================================================= */
 
 .nea-global-header__logo-link {
     display: inline-flex;
@@ -131,23 +124,20 @@
     flex-shrink: 0;
 }
 
-
 .nea-global-header__logo {
     display: block;
 
     width: 230px;
     height: auto;
-
     max-height: 82px;
 
     object-fit: contain;
 }
 
 
-
-/* =========================
+/* =========================================================
    DESKTOP NAVIGATION
-========================= */
+========================================================= */
 
 .nea-global-header__desktop-nav {
     margin-left: auto;
@@ -157,7 +147,6 @@
 
     gap: clamp(24px, 2.6vw, 46px);
 }
-
 
 .nea-global-header__desktop-nav > a {
     position: relative;
@@ -179,11 +168,9 @@
         opacity 0.2s ease;
 }
 
-
 .nea-global-header__desktop-nav > a:not(
     .nea-global-header__catalog-desktop
 )::after {
-
     content: "";
 
     position: absolute;
@@ -196,23 +183,19 @@
 
     background: #921919;
 
-    transition:
-        right 0.22s ease;
+    transition: right 0.22s ease;
 }
-
 
 .nea-global-header__desktop-nav > a:not(
     .nea-global-header__catalog-desktop
 ):hover::after {
-
     right: 0;
 }
 
 
-
-/* =========================
+/* =========================================================
    CATALOG — DESKTOP
-========================= */
+========================================================= */
 
 .nea-global-header__catalog-desktop {
     padding: 12px 22px;
@@ -220,7 +203,6 @@
     border-radius: 999px;
 
     background: #921919;
-
     color: #ffffff !important;
 
     font-size: 14px !important;
@@ -235,23 +217,19 @@
         box-shadow 0.2s ease !important;
 }
 
-
 .nea-global-header__catalog-desktop:hover {
-
     background: #C5132F;
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 8px 20px
-        rgba(146, 25, 25, 0.24);
+        0 8px 20px rgba(146, 25, 25, 0.24);
 }
 
 
-
-/* =========================
-   CATALOG — MOBILE/TABLET
-========================= */
+/* =========================================================
+   CATALOG — MOBILE / TABLET
+========================================================= */
 
 .nea-global-header__catalog-mobile {
     display: none;
@@ -272,18 +250,15 @@
     white-space: nowrap;
 
     box-shadow:
-        0 5px 14px
-        rgba(146, 25, 25, 0.16);
+        0 5px 14px rgba(146, 25, 25, 0.16);
 }
 
 
-
-/* =========================
+/* =========================================================
    HAMBURGER
-========================= */
+========================================================= */
 
 .nea-global-header__toggle {
-
     display: none;
 
     position: relative;
@@ -292,7 +267,6 @@
     height: 44px;
 
     margin-left: auto;
-
     padding: 0;
 
     border: 0;
@@ -304,9 +278,7 @@
     flex-shrink: 0;
 }
 
-
 .nea-global-header__toggle span {
-
     position: absolute;
 
     left: 8px;
@@ -324,57 +296,45 @@
         opacity 0.2s ease;
 }
 
-
 .nea-global-header__toggle span:nth-child(1) {
     top: 13px;
 }
 
-
 .nea-global-header__toggle span:nth-child(2) {
     top: 21px;
 }
-
 
 .nea-global-header__toggle span:nth-child(3) {
     top: 29px;
 }
 
 
-
-/* X when menu open */
+/* Hamburger → X */
 
 .nea-global-header.is-menu-open
 .nea-global-header__toggle span:nth-child(1) {
-
     top: 21px;
-
     transform: rotate(45deg);
 }
 
-
 .nea-global-header.is-menu-open
 .nea-global-header__toggle span:nth-child(2) {
-
     opacity: 0;
 }
 
-
 .nea-global-header.is-menu-open
 .nea-global-header__toggle span:nth-child(3) {
-
     top: 21px;
-
     transform: rotate(-45deg);
 }
 
 
-
-/* =========================
+/* =========================================================
    MOBILE MENU
-========================= */
+   Lives inside the sticky header
+========================================================= */
 
 .nea-global-header__mobile-menu {
-
     display: none;
 
     overflow: hidden;
@@ -390,24 +350,21 @@
         max-height 0.35s ease;
 }
 
-
 .nea-global-header.is-menu-open
 .nea-global-header__mobile-menu {
-
     max-height: 500px;
 }
-
 
 .nea-global-header__mobile-nav {
     display: flex;
     flex-direction: column;
+
     align-items: flex-end;
 
     gap: 4px;
 
     padding: 18px 24px 28px;
 }
-
 
 .nea-global-header__mobile-nav a {
     width: auto;
@@ -429,16 +386,16 @@
         transform 0.18s ease;
 }
 
-
 .nea-global-header__mobile-nav a:hover {
     color: #921919;
+
     transform: translateX(-4px);
 }
 
 
-/* =========================
+/* =========================================================
    ACTIVE PAGE
-========================= */
+========================================================= */
 
 .nea-global-header__desktop-nav > a.is-active:not(
     .nea-global-header__catalog-desktop
@@ -460,10 +417,10 @@
 .nea-global-header__catalog-desktop.is-active,
 .nea-global-header__catalog-mobile.is-active {
     background: #C5132F;
+
     box-shadow:
         0 8px 22px rgba(146, 25, 25, 0.28);
 }
-
 
 
 /* =========================================================
@@ -473,15 +430,12 @@
 @media (max-width: 1024px) {
 
     .nea-global-header__announcement-inner {
+        min-height: 31px;
 
         font-size: 10px;
-
-        min-height: 31px;
     }
 
-
     .nea-global-header__inner {
-
         min-height: 83px;
 
         padding:
@@ -490,44 +444,32 @@
         gap: 18px;
     }
 
-
     .nea-global-header__logo {
-
         width: 170px;
-
         max-height: 62px;
     }
 
-
     .nea-global-header__desktop-nav {
-
         display: none;
     }
 
-
     .nea-global-header__catalog-mobile {
-
         display: inline-flex;
 
         margin-left: auto;
     }
 
-
     .nea-global-header__toggle {
-
         display: block;
 
         margin-left: 4px;
     }
 
-
     .nea-global-header__mobile-menu {
-
         display: block;
     }
 
 }
-
 
 
 /* =========================================================
@@ -540,6 +482,7 @@
         min-height: 52px;
 
         flex-direction: column;
+
         gap: 0;
 
         padding: 7px 20px;
@@ -549,9 +492,7 @@
         line-height: 1.25;
     }
 
-
     .nea-global-header__inner {
-
         min-height: 100px;
 
         padding:
@@ -560,40 +501,29 @@
         gap: 10px;
     }
 
-
     .nea-global-header__logo {
-
         width: 170px;
-
         max-height: 70px;
     }
 
-
     .nea-global-header__catalog-mobile {
-
         padding:
             9px 13px;
 
         font-size: 12px;
     }
 
-
     .nea-global-header__toggle {
-
         width: 42px;
         height: 42px;
     }
 
-
     .nea-global-header__mobile-nav {
-
         padding:
             10px 20px 28px;
     }
 
-
     .nea-global-header__mobile-nav a {
-
         padding:
             15px 0;
 
@@ -603,7 +533,6 @@
 }
 
 
-
 /* =========================================================
    VERY SMALL MOBILE
 ========================================================= */
@@ -611,38 +540,29 @@
 @media (max-width: 420px) {
 
     .nea-global-header__inner {
-
         padding:
             0 12px;
 
         gap: 7px;
     }
 
-
     .nea-global-header__logo {
-
         width: 145px;
     }
 
-
     .nea-global-header__catalog-mobile {
-
         padding:
             8px 11px;
 
         font-size: 11px;
     }
 
-
     .nea-global-header__toggle {
-
         width: 38px;
         height: 40px;
     }
 
-
     .nea-global-header__toggle span {
-
         left: 7px;
 
         width: 25px;
