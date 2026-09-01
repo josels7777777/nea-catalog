@@ -671,9 +671,7 @@
     </div>
   </div>
 
-  <?php require __DIR__ . '/components/footer.php'; ?>
-
-  <script src="/shared/nea-header.js"></script>
+  <script src="shared/nea-header.js"></script>
   <script src="js/catalog.js"></script>
   
 </body>
