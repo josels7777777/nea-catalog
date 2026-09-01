@@ -26,7 +26,7 @@
 
       <div class="nea-catalog-header">
         <div>
-          <h2 class="nea-catalog-title">EEEquipment, Systems & Compliance Services</h2>
+          <h2 class="nea-catalog-title">Equipment, Systems & Compliance Services</h2>
           <p class="nea-catalog-description">
             Explore National Exterior Access solutions for suspended access, fall protection,
             facade access systems, inspections, load testing, and safety training.
