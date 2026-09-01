@@ -42,7 +42,7 @@
    ANNOUNCEMENT BAR
 ========================= */
 
-.nea-global-header__announcement {
+.nea-global-header__announcement-inner {
     width: 100%;
 
     background: #b70707;
