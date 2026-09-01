@@ -172,6 +172,47 @@
 
     if (!header) return;
 
+    /* ========================================
+    ACTIVE NAVIGATION
+    ======================================== */
+
+    const currentHost = window.location.hostname;
+    const currentPath = window.location.pathname;
+
+    const navLinks = header.querySelectorAll(
+        ".nea-global-header__desktop-nav a, .nea-global-header__mobile-nav a"
+    );
+
+    navLinks.forEach(function (link) {
+
+        const url = new URL(link.href);
+
+        const isCatalog =
+            currentHost === "catalog.nationalexterioraccess.com" &&
+            url.hostname === "catalog.nationalexterioraccess.com";
+
+        const isMainSitePage =
+            currentHost === "www.nationalexterioraccess.com" &&
+            url.hostname === "www.nationalexterioraccess.com" &&
+            currentPath === url.pathname;
+
+        if (isCatalog || isMainSitePage) {
+            link.classList.add("is-active");
+            link.setAttribute("aria-current", "page");
+        }
+
+    });
+
+    const mobileCatalog =
+    header.querySelector(".nea-global-header__catalog-mobile");
+
+    if (
+        currentHost === "catalog.nationalexterioraccess.com" &&
+        mobileCatalog
+    ) {
+        mobileCatalog.classList.add("is-active");
+        mobileCatalog.setAttribute("aria-current", "page");
+    }
 
     const toggle =
         header.querySelector(".nea-global-header__toggle");

@@ -428,6 +428,35 @@
 }
 
 
+/* =========================
+   ACTIVE PAGE
+========================= */
+
+.nea-global-header__desktop-nav > a.is-active:not(
+    .nea-global-header__catalog-desktop
+) {
+    color: #921919;
+}
+
+.nea-global-header__desktop-nav > a.is-active:not(
+    .nea-global-header__catalog-desktop
+)::after {
+    right: 0;
+}
+
+.nea-global-header__mobile-nav a.is-active {
+    color: #921919;
+    font-weight: 700;
+}
+
+.nea-global-header__catalog-desktop.is-active,
+.nea-global-header__catalog-mobile.is-active {
+    background: #C5132F;
+    box-shadow:
+        0 8px 22px rgba(146, 25, 25, 0.28);
+}
+
+
 
 /* =========================================================
    TABLET
