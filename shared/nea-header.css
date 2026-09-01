@@ -36,6 +36,12 @@
     text-decoration: none;
 }
 
+.nea-global-header__sticky {
+    position: sticky;
+    top: 0;
+    z-index: 5001;
+}
+
 
 
 /* =========================
@@ -80,13 +86,19 @@
 ========================= */
 
 .nea-global-header__main {
+    position: sticky;
+    top: 0;
+    z-index: 5001;
+
     width: 100%;
 
     background: #ffffff;
 
+    border-bottom: none;
+
     box-shadow:
-        0 8px 10px -10px rgba(146, 25, 25, 0.041),
-        0 16px 22px -12px rgba(146, 25, 25, 0.11);
+        0 6px 10px -8px rgba(19, 31, 57, 0.08),
+        0 14px 24px -14px rgba(146, 25, 25, 0.18);
 }
 
 
