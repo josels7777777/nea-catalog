@@ -1,0 +1,1520 @@
+:root {
+    --nea-red-dark: #921919;
+    --nea-red-main: #921919;
+    --nea-red-alt: #C5132F;
+    --nea-black: #020202;
+    --nea-navy: #0C1A29;
+    --nea-blue-dark: #131F39;
+    --nea-gray: #BCC3BF;
+    --nea-light: #F5F7F8;
+    --nea-white: #FFFFFF;
+    --nea-border: rgba(188, 195, 191, 0.55);
+    --nea-shadow: 0 14px 34px rgba(12, 26, 41, 0.08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--nea-navy);
+    margin: 0;
+}
+
+
+.nea-catalog-section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 64px 20px;
+    background: #ffffff;
+    color: var(--nea-navy);
+}
+
+.nea-catalog-section * {
+    box-sizing: border-box;
+}
+
+.nea-catalog-container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* .nea-catalog-header {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 34px;
+} */
+
+
+/* Enhanced Header Container */
+.nea-catalog-header {
+    display: grid;
+    /* Explicit grid areas: main (title+desc), summary (right column spanning rows), slider (below main)
+        This guarantees placement regardless of DOM insertion order. */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "main summary"
+        "slider summary";
+    row-gap: 0px;
+    column-gap: 30px;
+    margin-bottom: 48px;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+
+    box-shadow:
+        0 8px 10px -10px rgba(146, 25, 25, 0.041),
+        0 16px 22px -12px rgba(146, 25, 25, 0.11);
+    border-radius: 24px;
+}
+
+/* Assign the left column content (title + description) to the 'main' area */
+.nea-catalog-header>div:first-child {
+    grid-area: main;
+}
+
+/* Header image slider styles */
+.nea-header-slider {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 0px;
+    border: 2px solid var(--nea-gray);
+    border-radius: 12px;
+    position: relative;
+    isolation: isolate;
+    background: var(--nea-light);
+}
+
+.nea-header-slider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 48%, transparent 52%);
+    background-size: 220% 100%;
+    background-position: 120% 0;
+    background-repeat: no-repeat;
+    animation: nea-slider-calibration 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Place the slider explicitly into the 'slider' grid area in the left column */
+.nea-catalog-header>.nea-header-slider {
+    grid-area: slider;
+}
+
+.nea-slider-track {
+    display: flex;
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+.nea-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.nea-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+@keyframes nea-slider-calibration {
+
+    0%,
+    34% {
+        background-position: 120% 0;
+    }
+
+    58%,
+    72% {
+        background-position: -120% 0;
+    }
+
+    100% {
+        background-position: -120% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nea-header-slider::after {
+        animation: none;
+    }
+
+}
+
+@media (max-width: 720px) {
+
+    .nea-catalog-title,
+    .nea-catalog-description {
+        margin-bottom: 15px !important;
+    }
+
+    .nea-catalog-description {
+        text-align: justify;
+    }
+
+    .nea-header-slider {
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nea-catalog-header {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 15px;
+        padding-left: 0px;
+        padding-right: 0px;
+        gap: 0px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nea-catalog-header {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main"
+            "slider"
+            "summary";
+        column-gap: 0;
+        row-gap: 0;
+    }
+}
+
+/* Add this to your Title for an industrial "Anchor" look */
+.nea-catalog-title {
+    position: relative;
+    margin: 0 0 16px;
+    color: var(--nea-blue-dark);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+/* Decorative red bar before the title */
+.nea-catalog-title::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--nea-red-main);
+    margin-bottom: 16px;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .nea-catalog-header {
+        border-radius: 0px;
+    }
+
+    .nea-catalog-title {
+        text-align: center;
+    }
+}
+
+/* Polish the description text */
+.nea-catalog-description {
+    max-width: 580px;
+    font-size: 17px;
+    color: rgba(12, 26, 41, 0.7);
+    line-height: 1.6;
+}
+
+/* Ensure the summary grid looks like a cohesive "Control Panel" */
+.nea-catalog-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+
+    /* Use the explicit grid area so the summary occupies the right column and spans both rows */
+    grid-area: summary;
+    align-self: stretch;
+}
+
+@media (max-width: 768px) {
+    .nea-catalog-description {
+        text-align: center;
+    }
+}
+
+.nea-catalog-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-bottom: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(212, 33, 36, 0.08);
+    color: var(--nea-red-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nea-catalog-eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--nea-red-main);
+}
+
+.nea-catalog-title {
+    margin: 0 0 10px;
+    color: var(--nea-blue-dark);
+    font-size: clamp(30px, 4vw, 37px);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.nea-catalog-description {
+    max-width: 720px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    color: rgba(12, 26, 41, 0.555);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+
+
+.nea-catalog-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.nea-summary-card {
+    padding: 18px;
+    border: 1px solid var(--nea-border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 10px 24px rgba(12, 26, 41, 0.05);
+}
+
+.nea-summary-number {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nea-red-dark);
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.nea-summary-label {
+    display: block;
+    color: rgba(12, 26, 41, 0.68);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.nea-filter-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nea-catalog-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.nea-filter-panel {
+    position: sticky;
+    top: 20px;
+    padding: 22px;
+    border: 1px solid var(--nea-border);
+    border-radius: 22px;
+    background: var(--nea-white);
+    box-shadow: var(--nea-shadow);
+    padding-bottom: 15px;
+}
+
+.nea-filter-panel.is-expanded,
+.nea-filter-panel.is-collapsed {
+    margin-bottom: 30px;
+}
+
+.nea-filter-title {
+    margin: 10px 5px 15px;
+    color: var(--nea-blue-dark);
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+@media (min-width: 1050px) {
+    .nea-filter-title {
+        margin: 10px 0px 15px;
+    }
+}
+
+.nea-filter-note {
+    margin: 0 0 18px;
+    color: rgba(12, 26, 41, 0.64);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.nea-filter-toggle {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--nea-border);
+    border-radius: 14px;
+    background: var(--nea-light);
+    color: var(--nea-navy);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.nea-filter-toggle:hover {
+    border-color: rgba(212, 33, 36, 0.25);
+    background: rgba(212, 33, 36, 0.05);
+}
+
+/* Show + or − using a pseudo-element driven by the aria-expanded attribute.
+    This avoids extra JS: the existing script already updates aria-expanded, but
+    the visual plus/minus is handled purely in CSS. */
+.nea-filter-toggle::after {
+    content: "+";
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(-1px);
+    transition: transform 0.18s ease;
+}
+
+.nea-filter-toggle[aria-expanded="true"]::after {
+    content: "\2212";
+    /* Unicode minus sign */
+    transform: translateY(-1px) rotate(0deg);
+}
+
+.nea-filter-toggle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.nea-filter-preview-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(212, 33, 36, 0.08);
+    color: var(--nea-red-dark);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.nea-filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nea-filter-chip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 14px;
+    border: 1px solid var(--nea-border);
+    border-radius: 14px;
+    background: #ffffff;
+    color: var(--nea-navy);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.nea-filter-chip:hover {
+    border-color: rgba(138, 128, 128, 0.35);
+    transform: translateY(-1px);
+}
+
+.nea-filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 24px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: var(--nea-light);
+    color: rgba(12, 26, 41, 0.68);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+#nea-filter-all:checked~.nea-catalog-layout label[for="nea-filter-all"],
+#nea-filter-rentals:checked~.nea-catalog-layout label[for="nea-filter-rentals"],
+#nea-filter-permanent:checked~.nea-catalog-layout label[for="nea-filter-permanent"],
+#nea-filter-inspections:checked~.nea-catalog-layout label[for="nea-filter-inspections"],
+#nea-filter-training:checked~.nea-catalog-layout label[for="nea-filter-training"] {
+    border-color: var(--nea-red-main);
+    background: var(--nea-red-main);
+    color: var(--nea-white);
+    /* box-shadow: 0 12px 22px rgba(212, 33, 36, 0.22); */
+    box-shadow:
+        0 1px 1px hsl(0deg 0% 0% / 0.075),
+        0 2px 2px hsl(0deg 0% 0% / 0.075),
+        0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+#nea-filter-all:checked~.nea-catalog-layout label[for="nea-filter-all"] .nea-filter-count,
+#nea-filter-rentals:checked~.nea-catalog-layout label[for="nea-filter-rentals"] .nea-filter-count,
+#nea-filter-permanent:checked~.nea-catalog-layout label[for="nea-filter-permanent"] .nea-filter-count,
+#nea-filter-inspections:checked~.nea-catalog-layout label[for="nea-filter-inspections"] .nea-filter-count,
+#nea-filter-training:checked~.nea-catalog-layout label[for="nea-filter-training"] .nea-filter-count {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--nea-white);
+}
+
+#nea-filter-rentals:checked~.nea-catalog-layout .nea-card:not(.nea-rentals),
+#nea-filter-permanent:checked~.nea-catalog-layout .nea-card:not(.nea-permanent),
+#nea-filter-inspections:checked~.nea-catalog-layout .nea-card:not(.nea-inspections),
+#nea-filter-training:checked~.nea-catalog-layout .nea-card:not(.nea-training) {
+    display: none;
+}
+
+.nea-marketplace {
+    min-width: 0;
+}
+
+.nea-marketplace-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--nea-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 10px 26px rgba(12, 26, 41, 0.05);
+}
+
+.nea-results-title {
+    margin: 0;
+    color: var(--nea-blue-dark);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.nea-results-note {
+    margin: 4px 0 0;
+    color: rgba(12, 26, 41, 0.62);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.nea-category-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.nea-legend-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--nea-light);
+    color: rgba(12, 26, 41, 0.72);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.nea-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--nea-red-main);
+}
+
+.nea-legend-dot.navy {
+    background: var(--nea-blue-dark);
+}
+
+.nea-legend-dot.gray {
+    background: var(--nea-gray);
+}
+
+.nea-legend-dot.black {
+    background: var(--nea-black);
+}
+
+.nea-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.nea-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+    padding: 18px;
+    border: 1px solid var(--nea-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 26px rgba(12, 26, 41, 0.055);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    overflow: hidden;
+    position: relative;
+    background: var(--nea-white);
+}
+
+.nea-card[data-bg] {
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.70) 0%,
+            rgba(255, 255, 255, 0.97) 25%,
+            rgba(255, 255, 255, 0.97) 75%,
+            rgba(255, 255, 255, 0.70) 100%), var(--nea-card-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nea-card[data-bg]:hover {
+    background-image: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.30) 0%,
+            rgba(255, 255, 255, 0.70) 25%,
+            rgba(255, 255, 255, 0.70) 75%,
+            rgba(255, 255, 255, 0.30) 100%), var(--nea-card-bg);
+}
+
+.nea-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--nea-red-main);
+}
+
+.nea-card.nea-permanent::before {
+    background: var(--nea-blue-dark);
+}
+
+.nea-card.nea-inspections::before {
+    background: var(--nea-gray);
+}
+
+.nea-card.nea-training::before {
+    background: var(--nea-red-dark);
+}
+
+.nea-card:hover {
+    transform: translateY(-4px);
+    /* border-color: rgba(212, 33, 36, 0.36); */
+    box-shadow:
+        0 1px 1px hsl(0deg 0% 0% / 0.075),
+        0 2px 2px hsl(0deg 0% 0% / 0.075),
+        0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.nea-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.nea-card-badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(212, 33, 36, 0.08);
+    color: var(--nea-red-dark);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.nea-card.nea-permanent .nea-card-badge {
+    background: rgba(19, 31, 57, 0.08);
+    color: var(--nea-blue-dark);
+}
+
+.nea-card.nea-inspections .nea-card-badge {
+    background: rgba(188, 195, 191, 0.25);
+    color: var(--nea-navy);
+}
+
+.nea-card.nea-training .nea-card-badge {
+    background: rgba(2, 2, 2, 0.08);
+    color: var(--nea-black);
+}
+
+.nea-card-code {
+    color: rgba(12, 26, 41, 0.42);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.nea-card-title {
+    margin: 0 0 10px;
+    color: var(--nea-blue-dark);
+    font-size: 19px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+.nea-card-group {
+    margin: 0 0 16px;
+    color: #131f3993;
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 600;
+}
+
+.nea-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+.nea-card-type {
+    color: rgba(12, 26, 41, 0.55);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nea-card-action {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 8px 16px;
+
+    /* Colores: Texto blanco sobre fondo rojo */
+    background: var(--nea-red-main);
+    color: #ffffff;
+
+    border-radius: 50px;
+    /* Forma de píldora */
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    /* Transición suave para el hover */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+    cursor: pointer;
+}
+
+.nea-summary-card>button.nea-summary-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+
+    padding: 8px 12px;
+    border: none;
+    border-radius: 999px;
+
+    background: var(--nea-red-main);
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    box-shadow: 0 6px 18px rgba(146, 25, 25, 0.18);
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        opacity 0.18s ease;
+}
+
+.nea-summary-card:hover .nea-summary-cta,
+.nea-summary-cta:hover,
+.nea-summary-cta:focus-visible {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+@media (max-width: 1050px) {
+    .nea-catalog-header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nea-catalog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .nea-filter-panel {
+        position: static;
+    }
+
+    .nea-filter-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nea-filter-chip {
+        width: auto;
+    }
+
+    .nea-catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 721px) and (max-width: 1050px) {
+    .nea-catalog-layout {
+        gap: 0px;
+    }
+
+    .nea-catalog-header {
+        padding-bottom: 18px;
+        margin-bottom: 30px;
+    }
+
+    .nea-header-slider {
+        height: 140px !important;
+    }
+
+    .nea-catalog-summary {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .nea-summary-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 12px;
+    }
+
+    .nea-summary-number {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .nea-summary-label {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .nea-summary-card>button.nea-summary-cta {
+        width: 100%;
+        min-height: 36px;
+        margin-top: auto;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .nea-filter-panel {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 720px) {
+    .nea-catalog-header {
+        grid-template-columns: 1fr;
+    }
+
+    .nea-catalog-section {
+        padding: 44px 16px;
+    }
+
+    .nea-catalog-summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .nea-summary-number {
+        margin: 0;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .nea-summary-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 10px 14px 12px;
+        min-height: 60px;
+        overflow: hidden;
+    }
+
+    .nea-summary-label {
+        margin: 0;
+        min-width: 0;
+
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+
+    .nea-summary-card:hover {
+        background: rgba(212, 33, 36, 0.05);
+        border-color: var(--nea-red-main);
+        transform: translateX(4px);
+    }
+
+
+
+    .nea-summary-card>button.nea-summary-cta {
+        position: static;
+        margin: 0;
+        flex-shrink: 0;
+
+        padding: 8px 11px;
+        white-space: nowrap;
+    }
+
+    .nea-summary-cta:focus-visible {
+        outline: 3px solid rgba(212, 33, 36, 0.12);
+        outline-offset: 2px;
+    }
+
+    .nea-summary-number {
+        margin: 0;
+        font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .nea-marketplace-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nea-category-legend {
+        justify-content: flex-start;
+    }
+
+    .nea-filter-panel {
+        padding: 16px;
+        padding-bottom: 66px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nea-filter-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid var(--nea-border);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 24px rgba(12, 26, 41, 0.14);
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .nea-filter-toggle-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .nea-filter-note {
+        display: none;
+    }
+
+    .nea-filter-preview {
+        display: flex;
+    }
+
+    .nea-filter-panel.is-expanded .nea-filter-preview {
+        display: none;
+    }
+
+    .nea-filter-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+
+    .nea-filter-panel::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60px;
+        background: linear-gradient(transparent, rgba(245, 247, 248, 0.95), rgba(245, 247, 248, 1));
+        pointer-events: none;
+    }
+
+    .nea-filter-panel.is-expanded::after {
+        display: none;
+    }
+
+    .nea-filter-panel.is-expanded .nea-filter-list {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .nea-filter-panel.is-expanded .nea-filter-note {
+        display: block;
+    }
+
+    .nea-filter-panel.is-expanded .nea-filter-toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    .nea-filter-chip {
+        width: 100%;
+    }
+
+    .nea-catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nea-card {
+        min-height: auto;
+    }
+}
+
+/* Modal Styles */
+.nea-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 2, 2, 0.65);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.nea-modal.active {
+    display: flex;
+}
+
+.nea-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    box-shadow:
+        0 20px 60px rgba(12, 26, 41, 0.3),
+        0 0 0 1px rgba(188, 195, 191, 0.2);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Summary modal — tighter, cleaner layout */
+#nea-summary-modal .nea-modal-content {
+    max-width: 680px;
+    width: calc(100% - 48px);
+    border-radius: 18px;
+}
+
+#nea-summary-modal .nea-modal-header {
+    padding: 20px 24px;
+    /* align-items: center; */
+    gap: 12px;
+    border-bottom: 1px solid rgba(12, 26, 41, 0.06);
+}
+
+#nea-summary-modal .nea-modal-badge {
+    background: rgba(19, 31, 57, 0.06);
+    color: var(--nea-blue-dark);
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: -5px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* Match card title typography exactly */
+#nea-summary-modal .nea-modal-title {
+    margin: 0;
+    font-size: 19px;
+    color: var(--nea-blue-dark);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+#nea-summary-modal .nea-modal-intro {
+    margin: 8px 0 0 0;
+    color: rgba(12, 26, 41, 0.75);
+    font-size: 15px;
+}
+
+#nea-summary-modal .nea-modal-body {
+    padding: 20px 24px 24px 24px;
+}
+
+/* Ensure modal buttons use the same typography and sizing as card actions */
+#nea-summary-modal .nea-modal-btn,
+#nea-summary-modal .nea-card-action {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Make sure secondary (Cerrar) uses visible text and border like site buttons */
+#nea-summary-modal .nea-modal-btn {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--nea-border);
+    background: var(--nea-white);
+    color: var(--nea-navy);
+}
+
+/* Primary action already reuses .nea-card-action, ensure spacing consistent */
+#nea-summary-modal .nea-card-action {
+    padding: 8px 16px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+}
+
+/* Make 'Contactar' visually identical to the 'Ver más' CTA */
+#nea-summary-modal .nea-modal-btn.primary,
+#nea-summary-modal .nea-card-action {
+    background: var(--nea-red-main);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(146, 25, 25, 0.18);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+#nea-summary-modal .nea-modal-btn.primary:hover,
+#nea-summary-modal .nea-card-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(146, 25, 25, 0.22);
+}
+
+#nea-summary-modal #summary-modal-details {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(19, 31, 57, 0.05);
+}
+
+#nea-summary-modal .nea-modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(12, 26, 41, 0.04);
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+@media (max-width: 720px) {
+    #nea-summary-modal .nea-modal-content {
+        width: calc(100% - 24px);
+    }
+
+    #nea-summary-modal .nea-modal-header {
+        padding: 16px;
+    }
+
+    #nea-summary-modal .nea-modal-body {
+        padding: 16px;
+    }
+
+    /* Move modal close button into top-right corner of the popup for mobile */
+    .nea-modal-content {
+        position: relative;
+    }
+
+    .nea-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nea-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 32px;
+    border-bottom: 1px solid var(--nea-border);
+}
+
+#nea-details-modal .nea-modal-header {
+    display: block;
+    position: relative;
+}
+
+#nea-details-modal .nea-modal-title-group {
+    width: 100%;
+}
+
+#nea-details-modal .nea-modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.nea-modal-title-group {
+    flex: 1;
+}
+
+.nea-modal-badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(212, 33, 36, 0.08);
+    color: var(--nea-red-dark);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.nea-modal-title {
+    margin: 0;
+    color: var(--nea-blue-dark);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+.nea-modal-code {
+    display: block;
+    margin-top: 8px;
+    color: rgba(12, 26, 41, 0.42);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.nea-modal-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: top center;
+    background: var(--nea-light);
+}
+
+.nea-modal-image-window {
+    width: 100%;
+    height: 160px;
+    margin-top: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--nea-light);
+}
+
+.nea-modal-image-window .nea-modal-image {
+    margin-top: 0;
+    transform: translateY(0);
+    animation: nea-modal-image-pan 14s ease-in-out infinite alternate;
+    animation-play-state: paused;
+}
+
+.nea-modal-image-window.is-ready .nea-modal-image {
+    animation-play-state: running;
+}
+
+@keyframes nea-modal-image-pan {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-1 * var(--nea-image-travel, 0px)));
+    }
+}
+
+.nea-modal-image[hidden] {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nea-modal-image-window .nea-modal-image {
+        animation: none;
+        transform: translateY(0);
+    }
+}
+
+.nea-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--nea-border);
+    border-radius: 50%;
+    background: var(--nea-light);
+    color: var(--nea-navy);
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    flex-shrink: 0;
+}
+
+.nea-modal-close:hover {
+    background: rgba(212, 33, 36, 0.08);
+    border-color: var(--nea-red-main);
+    color: var(--nea-red-main);
+}
+
+.nea-modal-body {
+    padding: 32px;
+}
+
+.nea-modal-section {
+    margin-bottom: 28px;
+}
+
+.nea-modal-section:last-child {
+    margin-bottom: 0;
+}
+
+.nea-modal-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nea-navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nea-modal-value {
+    color: rgba(12, 26, 41, 0.78);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#nea-details-modal .nea-description-reveal {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+
+#nea-details-modal .nea-description-reveal .nea-modal-value {
+    margin: 0;
+}
+
+.nea-modal-footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--nea-border);
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.nea-modal-btn {
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--nea-border);
+    background: var(--nea-white);
+    color: var(--nea-navy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.nea-modal-btn:hover {
+    background: var(--nea-light);
+    border-color: rgba(212, 33, 36, 0.2);
+}
+
+.nea-modal-btn.primary {
+    /* match .nea-card-action visual style */
+    background: var(--nea-red-main);
+    color: #ffffff;
+    border-color: var(--nea-red-main);
+    box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+    font-size: 11px;
+    padding: 8px 16px;
+}
+
+.nea-modal-btn.primary:hover {
+    background: var(--nea-red-dark);
+    border-color: var(--nea-red-dark);
+    box-shadow: 0 6px 18px rgba(146, 25, 25, 0.22);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .nea-modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .nea-modal-header {
+        padding: 24px;
+    }
+
+    .nea-modal-body {
+        padding: 24px;
+    }
+
+    .nea-modal-footer {
+        padding: 16px 24px;
+        flex-direction: column;
+    }
+
+    .nea-modal-btn {
+        width: 100%;
+    }
+}
+
+/* Learn more overlay inside modal */
+.nea-modal-learnmore {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.6em;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: auto;
+    z-index: 4;
+}
+
+.nea-learnmore-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: var(--nea-red-main);
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    backdrop-filter: none;
+}
+
+.nea-learnmore-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: var(--nea-blue-dark);
+    box-shadow: 0 8px 20px rgba(146, 25, 25, 0.18);
+    transform: translateY(-2px);
+}
