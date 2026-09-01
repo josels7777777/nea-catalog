@@ -6,7 +6,7 @@
 
     <title>Our Catalog</title>
 
-    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="/css/catalog.css">
     <link rel="stylesheet" href="/shared/nea-header.css">
 
 <!--[if gte mso 9]><xml>
