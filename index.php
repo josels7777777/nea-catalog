@@ -7,6 +7,7 @@
     <title>Our Catalog</title>
 
     <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="/shared/nea-header.css">
 
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
@@ -18,7 +19,7 @@
 </head>
 
 <body>
-  <?php require __DIR__ . '/components/header.php'; ?>
+  <div id="nea-global-header-slot"></div>
 
   <section class="nea-catalog-section">
     <div class="nea-catalog-container">
@@ -672,6 +673,7 @@
 
   <?php require __DIR__ . '/components/footer.php'; ?>
 
+  <script src="/shared/nea-header.js"></script>
   <script src="js/catalog.js"></script>
   
 </body>
