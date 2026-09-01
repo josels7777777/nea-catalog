@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Catalog</title>
+
+    <style>
+    </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">V2SHWS6XWX3N-912120017-808558</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">692d1737-9a99-4c7f-8698-841bf458fbe2</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://appriver3651013612.sharepoint.com/sites/SSIDocuments/_layouts/15/DocIdRedir.aspx?ID=V2SHWS6XWX3N-912120017-808558, V2SHWS6XWX3N-912120017-808558</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+    <!-- National Exterior Access catalog section, HTML + CSS only -->
+<section class="nea-catalog-section">
+  <style>
+    :root {
+      --nea-red-dark: #921919;
+      --nea-red-main: #921919;
+      --nea-red-alt: #C5132F;
+      --nea-black: #020202;
+      --nea-navy: #0C1A29;
+      --nea-blue-dark: #131F39;
+      --nea-gray: #BCC3BF;
+      --nea-light: #F5F7F8;
+      --nea-white: #FFFFFF;
+      --nea-border: rgba(188, 195, 191, 0.55);
+      --nea-shadow: 0 14px 34px rgba(12, 26, 41, 0.08);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--nea-navy);
+      margin: 0;
+    }
+
+
+    .nea-catalog-section {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 64px 20px;
+      background: #ffffff;
+      color: var(--nea-navy);
+    }
+
+    .nea-catalog-section * {
+      box-sizing: border-box;
+    }
+
+    .nea-catalog-container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* .nea-catalog-header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 34px;
+    } */
+     
+
+      /* Enhanced Header Container */
+      .nea-catalog-header {
+        display: grid;
+        /* Explicit grid areas: main (title+desc), summary (right column spanning rows), slider (below main)
+           This guarantees placement regardless of DOM insertion order. */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+          "main summary"
+          "slider summary";
+        row-gap: 0px;
+        column-gap: 30px;
+        margin-bottom: 48px;
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        
+        box-shadow:
+          0 8px 10px -10px rgba(146, 25, 25, 0.041),
+          0 16px 22px -12px rgba(146, 25, 25, 0.11);
+        border-radius: 24px;
+      }
+
+      /* Assign the left column content (title + description) to the 'main' area */
+      .nea-catalog-header > div:first-child {
+        grid-area: main;
+      }
+
+      /* Header image slider styles */
+      .nea-header-slider {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 0px;
+        border: 2px solid var(--nea-gray);
+        border-radius: 12px;
+        position: relative;
+        isolation: isolate;
+        background: var(--nea-light);
+      }
+
+      .nea-header-slider::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 48%, transparent 52%);
+        background-size: 220% 100%;
+        background-position: 120% 0;
+        background-repeat: no-repeat;
+        animation: nea-slider-calibration 4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      /* Place the slider explicitly into the 'slider' grid area in the left column */
+      .nea-catalog-header > .nea-header-slider {
+        grid-area: slider;
+      }
+
+      .nea-slider-track {
+        display: flex;
+        transition: transform 0.6s ease;
+        will-change: transform;
+      }
+
+      .nea-slide {
+        flex: 0 0 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nea-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+      }
+
+      @keyframes nea-slider-calibration {
+        0%, 34% {
+          background-position: 120% 0;
+        }
+        58%, 72% {
+          background-position: -120% 0;
+        }
+        100% {
+          background-position: -120% 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nea-header-slider::after {
+          animation: none;
+        }
+
+      }
+
+      @media (max-width: 720px) {
+        .nea-catalog-title, .nea-catalog-description {
+          margin-bottom: 15px !important;
+        }
+        .nea-catalog-description {
+          text-align: justify;
+        }
+        .nea-header-slider {
+          border-radius: 10px;
+          margin-bottom: 20px;
+        }
+      }
+
+
+      @media (max-width: 768px) {
+        .nea-catalog-header {
+          margin-left: 0px;
+          margin-right: 0px;
+          margin-bottom: 15px;
+          padding-left: 0px;
+          padding-right: 0px;
+          gap: 0px;
+          padding-bottom: 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nea-catalog-header {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "main"
+            "slider"
+            "summary";
+          column-gap: 0;
+          row-gap: 0;
+        }
+      }
+
+      /* Add this to your Title for an industrial "Anchor" look */
+      .nea-catalog-title {
+        position: relative;
+        margin: 0 0 16px;
+        color: var(--nea-blue-dark);
+        font-size: clamp(32px, 4vw, 44px);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      /* Decorative red bar before the title */
+      .nea-catalog-title::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--nea-red-main);
+        margin-bottom: 16px;
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .nea-catalog-header {
+          border-radius: 0px;
+        }
+        .nea-catalog-title {
+          text-align: center;
+        }
+      }
+
+      /* Polish the description text */
+      .nea-catalog-description {
+        max-width: 580px;
+        font-size: 17px;
+        color: rgba(12, 26, 41, 0.7);
+        line-height: 1.6;
+      }
+
+      /* Ensure the summary grid looks like a cohesive "Control Panel" */
+      .nea-catalog-summary {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        
+        
+        /* Use the explicit grid area so the summary occupies the right column and spans both rows */
+        grid-area: summary;
+        align-self: stretch;
+      }
+
+      @media (max-width: 768px) {
+        .nea-catalog-description {
+          text-align: center;
+        }
+      }
+
+    .nea-catalog-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(212, 33, 36, 0.08);
+      color: var(--nea-red-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nea-catalog-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--nea-red-main);
+    }
+
+    .nea-catalog-title {
+      margin: 0 0 10px;
+      color: var(--nea-blue-dark);
+      font-size: clamp(30px, 4vw, 37px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .nea-catalog-description {
+      max-width: 720px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      color: rgba(12, 26, 41, 0.555);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+
+
+    .nea-catalog-summary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .nea-summary-card {
+      padding: 18px;
+      border: 1px solid var(--nea-border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 10px 24px rgba(12, 26, 41, 0.05);
+    }
+
+    .nea-summary-number {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--nea-red-dark);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .nea-summary-label {
+      display: block;
+      color: rgba(12, 26, 41, 0.68);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .nea-filter-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .nea-catalog-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .nea-filter-panel {
+      position: sticky;
+      top: 20px;
+      padding: 22px;
+      border: 1px solid var(--nea-border);
+      border-radius: 22px;
+      background: var(--nea-white);
+      box-shadow: var(--nea-shadow);
+      padding-bottom: 15px;
+    }
+
+    .nea-filter-panel.is-expanded, .nea-filter-panel.is-collapsed {
+      margin-bottom: 30px;
+    }
+
+    .nea-filter-title {
+      margin: 10px 5px 15px;
+      color: var(--nea-blue-dark);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    @media (min-width: 1050px) {
+      .nea-filter-title {
+        margin: 10px 0px 15px;
+      }
+    }
+
+    .nea-filter-note {
+      margin: 0 0 18px;
+      color: rgba(12, 26, 41, 0.64);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .nea-filter-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0 0 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--nea-border);
+      border-radius: 14px;
+      background: var(--nea-light);
+      color: var(--nea-navy);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .nea-filter-toggle:hover {
+      border-color: rgba(212, 33, 36, 0.25);
+      background: rgba(212, 33, 36, 0.05);
+    }
+
+    /* Show + or − using a pseudo-element driven by the aria-expanded attribute.
+       This avoids extra JS: the existing script already updates aria-expanded, but
+       the visual plus/minus is handled purely in CSS. */
+    .nea-filter-toggle::after {
+      content: "+";
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      transform: translateY(-1px);
+      transition: transform 0.18s ease;
+    }
+
+    .nea-filter-toggle[aria-expanded="true"]::after {
+      content: "\2212"; /* Unicode minus sign */
+      transform: translateY(-1px) rotate(0deg);
+    }
+
+    .nea-filter-toggle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+        font-size: 20px;
+      display: none;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .nea-filter-preview-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(212, 33, 36, 0.08);
+      color: var(--nea-red-dark);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nea-filter-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nea-filter-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: 44px;
+      padding: 12px 14px;
+      border: 1px solid var(--nea-border);
+      border-radius: 14px;
+      background: #ffffff;
+      color: var(--nea-navy);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .nea-filter-chip:hover {
+      border-color: rgba(138, 128, 128, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .nea-filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: var(--nea-light);
+      color: rgba(12, 26, 41, 0.68);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    #nea-filter-all:checked ~ .nea-catalog-layout label[for="nea-filter-all"],
+    #nea-filter-rentals:checked ~ .nea-catalog-layout label[for="nea-filter-rentals"],
+    #nea-filter-permanent:checked ~ .nea-catalog-layout label[for="nea-filter-permanent"],
+    #nea-filter-inspections:checked ~ .nea-catalog-layout label[for="nea-filter-inspections"],
+    #nea-filter-training:checked ~ .nea-catalog-layout label[for="nea-filter-training"] {
+      border-color: var(--nea-red-main);
+      background: var(--nea-red-main);
+      color: var(--nea-white);
+      /* box-shadow: 0 12px 22px rgba(212, 33, 36, 0.22); */
+      box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
+    }
+
+    #nea-filter-all:checked ~ .nea-catalog-layout label[for="nea-filter-all"] .nea-filter-count,
+    #nea-filter-rentals:checked ~ .nea-catalog-layout label[for="nea-filter-rentals"] .nea-filter-count,
+    #nea-filter-permanent:checked ~ .nea-catalog-layout label[for="nea-filter-permanent"] .nea-filter-count,
+    #nea-filter-inspections:checked ~ .nea-catalog-layout label[for="nea-filter-inspections"] .nea-filter-count,
+    #nea-filter-training:checked ~ .nea-catalog-layout label[for="nea-filter-training"] .nea-filter-count {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--nea-white);
+    }
+
+    #nea-filter-rentals:checked ~ .nea-catalog-layout .nea-card:not(.nea-rentals),
+    #nea-filter-permanent:checked ~ .nea-catalog-layout .nea-card:not(.nea-permanent),
+    #nea-filter-inspections:checked ~ .nea-catalog-layout .nea-card:not(.nea-inspections),
+    #nea-filter-training:checked ~ .nea-catalog-layout .nea-card:not(.nea-training) {
+      display: none;
+    }
+
+    .nea-marketplace {
+      min-width: 0;
+    }
+
+    .nea-marketplace-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--nea-border);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 10px 26px rgba(12, 26, 41, 0.05);
+    }
+
+    .nea-results-title {
+      margin: 0;
+      color: var(--nea-blue-dark);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .nea-results-note {
+      margin: 4px 0 0;
+      color: rgba(12, 26, 41, 0.62);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .nea-category-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nea-legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--nea-light);
+      color: rgba(12, 26, 41, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nea-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--nea-red-main);
+    }
+
+    .nea-legend-dot.navy {
+      background: var(--nea-blue-dark);
+    }
+
+    .nea-legend-dot.gray {
+      background: var(--nea-gray);
+    }
+
+    .nea-legend-dot.black {
+      background: var(--nea-black);
+    }
+
+    .nea-catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .nea-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 210px;
+      padding: 18px;
+      border: 1px solid var(--nea-border);
+      border-radius: 20px;
+      box-shadow: 0 10px 26px rgba(12, 26, 41, 0.055);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      overflow: hidden;
+      position: relative;
+      background: var(--nea-white);
+    }
+
+    .nea-card[data-bg] {
+      background: linear-gradient( to bottom, 
+          rgba(255, 255, 255, 0.70) 0%, 
+          rgba(255, 255, 255, 0.97) 25%, 
+          rgba(255, 255, 255, 0.97) 75%, 
+          rgba(255, 255, 255, 0.70) 100% ), var(--nea-card-bg)
+      ;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .nea-card[data-bg]:hover {
+      background-image: linear-gradient( to bottom, 
+          rgba(255, 255, 255, 0.30) 0%, 
+          rgba(255, 255, 255, 0.70) 25%, 
+          rgba(255, 255, 255, 0.70) 75%, 
+          rgba(255, 255, 255, 0.30) 100% ), var(--nea-card-bg)
+      ;
+    }
+
+    .nea-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--nea-red-main);
+    }
+
+    .nea-card.nea-permanent::before {
+      background: var(--nea-blue-dark);
+    }
+
+    .nea-card.nea-inspections::before {
+      background: var(--nea-gray);
+    }
+
+    .nea-card.nea-training::before {
+      background: var(--nea-red-dark);
+    }
+
+    .nea-card:hover {
+      transform: translateY(-4px);
+      /* border-color: rgba(212, 33, 36, 0.36); */
+      box-shadow:
+        0 1px 1px hsl(0deg 0% 0% / 0.075),
+        0 2px 2px hsl(0deg 0% 0% / 0.075),
+        0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075)
+      ;
+    }
+
+    .nea-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .nea-card-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(212, 33, 36, 0.08);
+      color: var(--nea-red-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nea-card.nea-permanent .nea-card-badge {
+      background: rgba(19, 31, 57, 0.08);
+      color: var(--nea-blue-dark);
+    }
+
+    .nea-card.nea-inspections .nea-card-badge {
+      background: rgba(188, 195, 191, 0.25);
+      color: var(--nea-navy);
+    }
+
+    .nea-card.nea-training .nea-card-badge {
+      background: rgba(2, 2, 2, 0.08);
+      color: var(--nea-black);
+    }
+
+    .nea-card-code {
+      color: rgba(12, 26, 41, 0.42);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .nea-card-title {
+      margin: 0 0 10px;
+      color: var(--nea-blue-dark);
+      font-size: 19px;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+
+    .nea-card-group {
+      margin: 0 0 16px;
+      color: #131f3993;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .nea-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 14px;
+    }
+
+    .nea-card-type {
+      color: rgba(12, 26, 41, 0.55);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nea-card-action {
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: pre;
+      flex-shrink: 0;
+      gap: 8px;
+      padding: 8px 16px;
+      
+      /* Colores: Texto blanco sobre fondo rojo */
+      background: var(--nea-red-main);
+      color: #ffffff;
+      
+      border-radius: 50px; /* Forma de píldora */
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      
+      /* Transición suave para el hover */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+      cursor: pointer;
+    }
+
+    .nea-summary-card > button.nea-summary-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 12px;
+
+        padding: 8px 12px;
+        border: none;
+        border-radius: 999px;
+
+        background: var(--nea-red-main);
+        color: #ffffff;
+
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+
+        box-shadow: 0 6px 18px rgba(146, 25, 25, 0.18);
+        cursor: pointer;
+
+        transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease,
+            opacity 0.18s ease;
+    }
+
+    .nea-summary-card:hover .nea-summary-cta,
+    .nea-summary-cta:hover,
+    .nea-summary-cta:focus-visible {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    @media (max-width: 1050px) {
+      .nea-catalog-header {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nea-catalog-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .nea-filter-panel {
+        position: static;
+      }
+
+      .nea-filter-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .nea-filter-chip {
+        width: auto;
+      }
+
+      .nea-catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 721px) and (max-width: 1050px) {
+      .nea-catalog-layout {
+        gap: 0px;
+      }
+      .nea-catalog-header {
+        padding-bottom: 18px;
+        margin-bottom: 30px;
+      }
+
+      .nea-header-slider {
+        height: 140px !important;
+      }
+
+      .nea-catalog-summary {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+      }
+
+      .nea-summary-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 12px;
+      }
+
+      .nea-summary-number {
+        margin-bottom: 5px;
+        font-size: 18px;
+      }
+
+      .nea-summary-label {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .nea-summary-card > button.nea-summary-cta {
+        width: 100%;
+        min-height: 36px;
+        margin-top: auto;
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      .nea-filter-panel {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nea-catalog-header {
+        grid-template-columns: 1fr;
+      }
+
+      .nea-catalog-section {
+        padding: 44px 16px;
+      }
+
+      .nea-catalog-summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .nea-summary-number {
+        margin: 0;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .nea-summary-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 10px 14px 12px;
+        min-height: 60px;
+        overflow: hidden;
+    }
+
+    .nea-summary-label {
+        margin: 0;
+        min-width: 0;
+
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+
+      .nea-summary-card:hover {
+        background: rgba(212, 33, 36, 0.05);
+        border-color: var(--nea-red-main);
+        transform: translateX(4px);
+      }
+
+      
+
+    .nea-summary-card > button.nea-summary-cta {
+        position: static;
+        margin: 0;
+        flex-shrink: 0;
+
+        padding: 8px 11px;
+        white-space: nowrap;
+    }
+
+      .nea-summary-cta:focus-visible {
+        outline: 3px solid rgba(212, 33, 36, 0.12);
+        outline-offset: 2px;
+      }
+
+      .nea-summary-number {
+        margin: 0;
+        font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .nea-marketplace-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nea-category-legend {
+        justify-content: flex-start;
+      }
+
+      .nea-filter-panel {
+        padding: 16px;
+        padding-bottom: 66px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nea-filter-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid var(--nea-border);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 24px rgba(12, 26, 41, 0.14);
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      .nea-filter-toggle-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .nea-filter-note {
+        display: none;
+      }
+
+      .nea-filter-preview {
+        display: flex;
+      }
+
+      .nea-filter-panel.is-expanded .nea-filter-preview {
+        display: none;
+      }
+
+      .nea-filter-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+      }
+
+      .nea-filter-panel::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60px;
+        background: linear-gradient(transparent, rgba(245, 247, 248, 0.95), rgba(245, 247, 248, 1));
+        pointer-events: none;
+      }
+
+      .nea-filter-panel.is-expanded::after {
+        display: none;
+      }
+
+      .nea-filter-panel.is-expanded .nea-filter-list {
+        max-height: none;
+        overflow: visible;
+      }
+
+      .nea-filter-panel.is-expanded .nea-filter-note {
+        display: block;
+      }
+
+      .nea-filter-panel.is-expanded .nea-filter-toggle-icon {
+        transform: rotate(180deg);
+      }
+
+      .nea-filter-chip {
+        width: 100%;
+      }
+
+      .nea-catalog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nea-card {
+        min-height: auto;
+      }
+    }
+
+    /* Modal Styles */
+    .nea-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(2, 2, 2, 0.65);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .nea-modal.active {
+      display: flex;
+    }
+
+    .nea-modal-content {
+      position: relative;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 
+        0 20px 60px rgba(12, 26, 41, 0.3),
+        0 0 0 1px rgba(188, 195, 191, 0.2);
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Summary modal — tighter, cleaner layout */
+    #nea-summary-modal .nea-modal-content {
+      max-width: 680px;
+      width: calc(100% - 48px);
+      border-radius: 18px;
+    }
+
+    #nea-summary-modal .nea-modal-header {
+      padding: 20px 24px;
+      /* align-items: center; */
+      gap: 12px;
+      border-bottom: 1px solid rgba(12,26,41,0.06);
+    }
+
+    #nea-summary-modal .nea-modal-badge {
+      background: rgba(19,31,57,0.06);
+      color: var(--nea-blue-dark);
+      display: inline-block;
+      margin-bottom: 20px;
+      margin-left: -5px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Match card title typography exactly */
+    #nea-summary-modal .nea-modal-title {
+      margin: 0;
+      font-size: 19px;
+      color: var(--nea-blue-dark);
+      line-height: 1.25;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+
+    #nea-summary-modal .nea-modal-intro {
+      margin: 8px 0 0 0;
+      color: rgba(12,26,41,0.75);
+      font-size: 15px;
+    }
+
+    #nea-summary-modal .nea-modal-body {
+      padding: 20px 24px 24px 24px;
+    }
+
+    /* Ensure modal buttons use the same typography and sizing as card actions */
+    #nea-summary-modal .nea-modal-btn,
+    #nea-summary-modal .nea-card-action {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Make sure secondary (Cerrar) uses visible text and border like site buttons */
+    #nea-summary-modal .nea-modal-btn {
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid var(--nea-border);
+      background: var(--nea-white);
+      color: var(--nea-navy);
+    }
+
+    /* Primary action already reuses .nea-card-action, ensure spacing consistent */
+    #nea-summary-modal .nea-card-action {
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+    }
+
+    /* Make 'Contactar' visually identical to the 'Ver más' CTA */
+    #nea-summary-modal .nea-modal-btn.primary,
+    #nea-summary-modal .nea-card-action {
+      background: var(--nea-red-main);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(146, 25, 25, 0.18);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    #nea-summary-modal .nea-modal-btn.primary:hover,
+    #nea-summary-modal .nea-card-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(146, 25, 25, 0.22);
+    }
+
+    #nea-summary-modal #summary-modal-details {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(19, 31, 57, 0.05);
+    }
+
+    #nea-summary-modal .nea-modal-footer {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(12,26,41,0.04);
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    @media (max-width: 720px) {
+      #nea-summary-modal .nea-modal-content { width: calc(100% - 24px); }
+      #nea-summary-modal .nea-modal-header { padding: 16px; }
+      #nea-summary-modal .nea-modal-body { padding: 16px; }
+      /* Move modal close button into top-right corner of the popup for mobile */
+      .nea-modal-content { position: relative; }
+      .nea-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nea-modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 32px;
+      border-bottom: 1px solid var(--nea-border);
+    }
+
+    #nea-details-modal .nea-modal-header {
+      display: block;
+      position: relative;
+    }
+
+    #nea-details-modal .nea-modal-title-group {
+      width: 100%;
+    }
+
+    #nea-details-modal .nea-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+    }
+
+    .nea-modal-title-group {
+      flex: 1;
+    }
+
+    .nea-modal-badge {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(212, 33, 36, 0.08);
+      color: var(--nea-red-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .nea-modal-title {
+      margin: 0;
+      color: var(--nea-blue-dark);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    .nea-modal-code {
+      display: block;
+      margin-top: 8px;
+      color: rgba(12, 26, 41, 0.42);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .nea-modal-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      object-position: top center;
+      background: var(--nea-light);
+    }
+
+    .nea-modal-image-window {
+      width: 100%;
+      height: 160px;
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--nea-light);
+    }
+
+    .nea-modal-image-window .nea-modal-image {
+      margin-top: 0;
+      transform: translateY(0);
+      animation: nea-modal-image-pan 14s ease-in-out infinite alternate;
+      animation-play-state: paused;
+    }
+
+    .nea-modal-image-window.is-ready .nea-modal-image {
+      animation-play-state: running;
+    }
+
+    @keyframes nea-modal-image-pan {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(calc(-1 * var(--nea-image-travel, 0px)));
+      }
+    }
+
+    .nea-modal-image[hidden] {
+      display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nea-modal-image-window .nea-modal-image {
+        animation: none;
+        transform: translateY(0);
+      }
+    }
+
+    .nea-modal-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--nea-border);
+      border-radius: 50%;
+      background: var(--nea-light);
+      color: var(--nea-navy);
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      flex-shrink: 0;
+    }
+
+    .nea-modal-close:hover {
+      background: rgba(212, 33, 36, 0.08);
+      border-color: var(--nea-red-main);
+      color: var(--nea-red-main);
+    }
+
+    .nea-modal-body {
+      padding: 32px;
+    }
+
+    .nea-modal-section {
+      margin-bottom: 28px;
+    }
+
+    .nea-modal-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .nea-modal-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--nea-navy);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nea-modal-value {
+      color: rgba(12, 26, 41, 0.78);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    #nea-details-modal .nea-description-reveal {
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    #nea-details-modal .nea-description-reveal .nea-modal-value {
+      margin: 0;
+    }
+
+    .nea-modal-footer {
+      padding: 24px 32px;
+      border-top: 1px solid var(--nea-border);
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .nea-modal-btn {
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid var(--nea-border);
+      background: var(--nea-white);
+      color: var(--nea-navy);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .nea-modal-btn:hover {
+      background: var(--nea-light);
+      border-color: rgba(212, 33, 36, 0.2);
+    }
+
+    .nea-modal-btn.primary {
+      /* match .nea-card-action visual style */
+      background: var(--nea-red-main);
+      color: #ffffff;
+      border-color: var(--nea-red-main);
+      box-shadow: 0 4px 12px rgba(146, 25, 25, 0.2);
+      font-size: 11px;
+      padding: 8px 16px;
+    }
+
+    .nea-modal-btn.primary:hover {
+      background: var(--nea-red-dark);
+      border-color: var(--nea-red-dark);
+      box-shadow: 0 6px 18px rgba(146, 25, 25, 0.22);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .nea-modal-content {
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      .nea-modal-header {
+        padding: 24px;
+      }
+
+      .nea-modal-body {
+        padding: 24px;
+      }
+
+      .nea-modal-footer {
+        padding: 16px 24px;
+        flex-direction: column;
+      }
+
+      .nea-modal-btn {
+        width: 100%;
+      }
+    }
+
+    /* Learn more overlay inside modal */
+    .nea-modal-learnmore {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1.6em;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.68);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      pointer-events: auto;
+      z-index: 4;
+    }
+
+    .nea-learnmore-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--nea-red-main);
+      color: #ffffff;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      backdrop-filter: none;
+    }
+
+    .nea-learnmore-btn:hover {
+      background: rgba(0,0,0,0.08);
+      color: var(--nea-blue-dark);
+      box-shadow: 0 8px 20px rgba(146,25,25,0.18);
+      transform: translateY(-2px);
+    }
+
+  </style>
+
+  <div class="nea-catalog-container">
+
+    <div class="nea-catalog-header">
+      <div>
+        <h2 class="nea-catalog-title">Equipment, Systems & Compliance Services</h2>
+        <p class="nea-catalog-description">
+          Explore National Exterior Access solutions for suspended access, fall protection,
+          facade access systems, inspections, load testing, and safety training.
+        </p>
+      </div>
+
+    <div class="nea-catalog-summary">
+      <!-- Rentals: Focus on Speed and Availability -->
+      <div class="nea-summary-card">
+        <span class="nea-summary-number">Rentals</span>
+        <span class="nea-summary-label">High-performance swing stages and hoists for immediate project mobilization.</span>
+        <button class="nea-summary-cta" type="button" aria-label="Learn more — Rentals">Learn more</button>
+      </div>
+
+      <!-- Systems: Focus on Engineering and Longevity -->
+      <div class="nea-summary-card">
+        <span class="nea-summary-number">Systems</span>
+        <span class="nea-summary-label">Permanent engineered anchors and lifelines designed for maximum building safety.</span>
+        <button class="nea-summary-cta" type="button" aria-label="Learn more — Systems">Learn more</button>
+      </div>
+
+      <!-- Inspections: Focus on Law and Certification -->
+      <div class="nea-summary-card">
+        <span class="nea-summary-number">Inspections</span>
+        <span class="nea-summary-label">Certified load testing and P. Eng reports to ensure total regulatory compliance.</span>
+        <button class="nea-summary-cta" type="button" aria-label="Learn more — Inspections">Learn more</button>
+      </div>
+
+      <!-- Training: Focus on Personnel and Readiness -->
+      <div class="nea-summary-card">
+        <span class="nea-summary-number">Training</span>
+        <span class="nea-summary-label">Professional hands-on certification to build safer and more efficient crews.</span>
+        <button class="nea-summary-cta" type="button" aria-label="Learn more — Training">Learn more</button>
+      </div>
+    </div>
+      
+  </div>
+
+    <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-all" checked>
+    <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-rentals">
+    <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-permanent">
+    <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-inspections">
+    <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-training">
+
+    <div class="nea-catalog-layout">
+      <aside class="nea-filter-panel">
+        <h3 class="nea-filter-title">Filter catalog</h3>
+        <p class="nea-filter-note">
+          Select a category to browse the catalog by solution type.
+        </p>
+
+        <button class="nea-filter-toggle" type="button" id="nea-filter-toggle" aria-expanded="false" aria-controls="nea-filter-list" aria-label="Show filters"></button>
+
+        <div class="nea-filter-list" id="nea-filter-list">
+          <label class="nea-filter-chip" for="nea-filter-all">
+            All
+            <span class="nea-filter-count">70+</span>
+          </label>
+
+          <label class="nea-filter-chip" for="nea-filter-rentals">
+            Rentals
+            <span class="nea-filter-count">31</span>
+          </label>
+
+          <label class="nea-filter-chip" for="nea-filter-permanent">
+            Permanent Systems
+            <span class="nea-filter-count">28</span>
+          </label>
+
+          <label class="nea-filter-chip" for="nea-filter-inspections">
+            Inspections
+            <span class="nea-filter-count">7</span>
+          </label>
+
+          <label class="nea-filter-chip" for="nea-filter-training">
+            Training
+            <span class="nea-filter-count">4</span>
+          </label>
+        </div>
+      </aside>
+
+      <div class="nea-marketplace">
+        <!-- <div class="nea-marketplace-top">
+          <div>
+            <h3 class="nea-results-title">Catalog items</h3>
+            <p class="nea-results-note">
+              Browse access equipment, permanent systems, inspection services, and training options.
+            </p>
+          </div>
+
+          <div class="nea-category-legend">
+            <span class="nea-legend-pill"><span class="nea-legend-dot"></span>Rentals</span>
+            <span class="nea-legend-pill"><span class="nea-legend-dot navy"></span>Permanent</span>
+            <span class="nea-legend-pill"><span class="nea-legend-dot gray"></span>Inspections</span>
+            <span class="nea-legend-pill"><span class="nea-legend-dot black"></span>Training</span>
+          </div>
+        </div> -->
+
+
+        <!-- ========== GRID ========== -->
+        <div class="nea-catalog-grid">
+          <!-- Rentals -->
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Standard_Straight_Swing_Stage.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-01</span></div>
+            <h3 class="nea-card-title">Standard Straight Swing Stage</h3>
+            <p class="nea-card-group">Swing Stages & Modular Platforms</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Equipment rental</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Sloped Stages.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-02</span></div>
+            <h3 class="nea-card-title">Sloped Stages</h3>
+            <p class="nea-card-group">Swing Stages & Modular Platforms</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Equipment rental</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Multi-Point & Large-Scale Dance Floor Platforms.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-03</span></div>
+            <h3 class="nea-card-title">Multi-Point & Large-Scale Dance Floor Platforms</h3>
+            <p class="nea-card-group">Swing Stages & Modular Platforms</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Custom Configurations.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-04</span></div>
+            <h3 class="nea-card-title">Custom Configurations</h3>
+            <p class="nea-card-group">Swing Stages & Modular Platforms</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Custom setup</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Specialty Shapes.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-05</span></div>
+            <h3 class="nea-card-title">Specialty Shapes</h3>
+            <p class="nea-card-group">Swing Stages & Modular Platforms</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Stirrups.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-06</span></div>
+            <h3 class="nea-card-title">Stirrups</h3>
+            <p class="nea-card-group">Swing Stage Components</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Standard End Stirrups.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-07</span></div>
+            <h3 class="nea-card-title">Standard End Stirrups</h3>
+            <p class="nea-card-group">Swing Stage Components</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Walk-Through Stirrups.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-08</span></div>
+            <h3 class="nea-card-title">Walk-Through Stirrups</h3>
+            <p class="nea-card-group">Swing Stage Components</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/C Stirrups.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-09</span></div>
+            <h3 class="nea-card-title">C Stirrups</h3>
+            <p class="nea-card-group">Swing Stage Components</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Pass-By Stirrups.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-10</span></div>
+            <h3 class="nea-card-title">Pass-By Stirrups</h3>
+            <p class="nea-card-group">Swing Stage Components</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Parapet Clamps.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-11</span></div>
+            <h3 class="nea-card-title">Parapet Clamps</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Parapet Hooks.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-12</span></div>
+            <h3 class="nea-card-title">Parapet Hooks</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Portable Outrigger Beams.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-13</span></div>
+            <h3 class="nea-card-title">Portable Outrigger Beams</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Outrigger Assemblies.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-14</span></div>
+            <h3 class="nea-card-title">Outrigger Assemblies</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Davit Arms.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-15</span></div>
+            <h3 class="nea-card-title">Davit Arms</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Rigging Accessories.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-16</span></div>
+            <h3 class="nea-card-title">Rigging Accessories</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Accessories</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Wire Ropes.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-17</span></div>
+            <h3 class="nea-card-title">Wire Ropes</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Accessory</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Power Cords.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-18</span></div>
+            <h3 class="nea-card-title">Power Cords</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Accessory</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Specialized Rigging Hardware.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-19</span></div>
+            <h3 class="nea-card-title">Specialized Rigging Hardware</h3>
+            <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Engineered Material Hoisting Setups.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-20</span></div>
+            <h3 class="nea-card-title">Engineered Material Hoisting Setups</h3>
+            <p class="nea-card-group">Material Hoisting Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Hoisting system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Manual Winches.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-21</span></div>
+            <h3 class="nea-card-title">Manual Winches</h3>
+            <p class="nea-card-group">Hoists & Winches</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Hoist equipment</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Electrical Powered Hoists.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-22</span></div>
+            <h3 class="nea-card-title">Electrical Powered Hoists</h3>
+            <p class="nea-card-group">Hoists & Winches</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Hoist equipment</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Tractel Tirak 501.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-23</span></div>
+            <h3 class="nea-card-title">Tractel Tirak 501</h3>
+            <p class="nea-card-group">Hoists & Winches</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Powered hoist</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Power Climber PC1.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-24</span></div>
+            <h3 class="nea-card-title">Power Climber PC1</h3>
+            <p class="nea-card-group">Hoists & Winches</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Powered hoist</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Delivery.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-25</span></div>
+            <h3 class="nea-card-title">Delivery</h3>
+            <p class="nea-card-group">Rental Support</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Assembly.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-26</span></div>
+            <h3 class="nea-card-title">Assembly</h3>
+            <p class="nea-card-group">Rental Support</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Rigging.webp')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-27</span></div>
+            <h3 class="nea-card-title">Rigging</h3>
+            <p class="nea-card-group">Rental Support</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('Assets/Pics/Dismantling.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-28</span></div>
+            <h3 class="nea-card-title">Dismantling</h3>
+            <p class="nea-card-group">Rental Support</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <!-- Permanent Systems -->
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Horizontal Lifelines.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-01</span></div>
+            <h3 class="nea-card-title">Horizontal Lifelines</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Fall protection</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Roof Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-02</span></div>
+            <h3 class="nea-card-title">Roof Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Wall Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-03</span></div>
+            <h3 class="nea-card-title">Wall Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Cast-In-Place Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-04</span></div>
+            <h3 class="nea-card-title">Cast-In-Place Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Thru-Bolt Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-05</span></div>
+            <h3 class="nea-card-title">Thru-Bolt Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Weld-On Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-06</span></div>
+            <h3 class="nea-card-title">Weld-On Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Adhesive Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-07</span></div>
+            <h3 class="nea-card-title">Adhesive Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Wrap-Around Anchors.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-08</span></div>
+            <h3 class="nea-card-title">Wrap-Around Anchors</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Non-Penetrating Guardrail.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-09</span></div>
+            <h3 class="nea-card-title">Non-Penetrating Guardrail</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Guardrail system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Roof Walkways.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-10</span></div>
+            <h3 class="nea-card-title">Roof Walkways</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Access system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Catwalks.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-11</span></div>
+            <h3 class="nea-card-title">Catwalks</h3>
+            <p class="nea-card-group">Roof Anchors & Fall Protection</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Access system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Roof Track Systems.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-12</span></div>
+            <h3 class="nea-card-title">Roof Track Systems</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Rolling Davits.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-13</span></div>
+            <h3 class="nea-card-title">Rolling Davits</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Davit system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Stationary Davit Systems.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-14</span></div>
+            <h3 class="nea-card-title">Stationary Davit Systems</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Davit system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Davit Arms.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-15</span></div>
+            <h3 class="nea-card-title">Davit Arms</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Davit Bases.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-16</span></div>
+            <h3 class="nea-card-title">Davit Bases</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Davit Sockets.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-17</span></div>
+            <h3 class="nea-card-title">Davit Sockets</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Monorail Systems.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-18</span></div>
+            <h3 class="nea-card-title">Monorail Systems</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Permanent Outrigger Beams.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-19</span></div>
+            <h3 class="nea-card-title">Permanent Outrigger Beams</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Permanent Parapet Clamps.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-20</span></div>
+            <h3 class="nea-card-title">Permanent Parapet Clamps</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigging system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Specialized Permanent Rigging Hardware.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-21</span></div>
+            <h3 class="nea-card-title">Specialized Permanent Rigging Hardware</h3>
+            <p class="nea-card-group">Building Envelope Access Systems</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty hardware</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Rolling Ladders.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-22</span></div>
+            <h3 class="nea-card-title">Rolling Ladders</h3>
+            <p class="nea-card-group">Custom Platforms & Structures</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Custom structure</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Custom Rigging.jpg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-23</span></div>
+            <h3 class="nea-card-title">Custom Rigging</h3>
+            <p class="nea-card-group">Custom Platforms & Structures</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Custom system</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Specialty Access Systems.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-24</span></div>
+            <h3 class="nea-card-title">Specialty Access Systems</h3>
+            <p class="nea-card-group">Custom Platforms & Structures</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Specialty Access Systems.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-25</span></div>
+            <h3 class="nea-card-title">Building Maintenance Units (BMU)</h3>
+            <p class="nea-card-group">Custom Platforms & Structures</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('Assets/Pics/Funicular Lifts.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-26</span></div>
+            <h3 class="nea-card-title">Funicular Lifts</h3>
+            <p class="nea-card-group">Custom Platforms & Structures</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <!-- Inspections -->
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Annual Visual Inspections.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-01</span></div>
+            <h3 class="nea-card-title">Annual Visual Inspections</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Anchor Inspections.webp')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-02</span></div>
+            <h3 class="nea-card-title">Anchor Inspections</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Anchor Inspections.webp')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-03</span></div>
+            <h3 class="nea-card-title">Suspension System Inspections</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Anchor Load Testing.jpeg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-04</span></div>
+            <h3 class="nea-card-title">Anchor Load Testing</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Load testing</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/5-Year Load Testing.jpeg')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-05</span></div>
+            <h3 class="nea-card-title">5-Year Load Testing</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Load testing</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Engineered  Stamped Reports.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-06</span></div>
+            <h3 class="nea-card-title">Engineered / Stamped Reports</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Documentation</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('Assets/Pics/Professional Engineering Certification.png')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-07</span></div>
+            <h3 class="nea-card-title">Professional Engineering Certification</h3>
+            <p class="nea-card-group">Inspection & Compliance Services</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Certification</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <!-- Training -->
+          <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('Assets/Pics/Basic Level 1 Fall Protection Orientation.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-01</span></div>
+            <h3 class="nea-card-title">Basic Level 1 Fall Protection Orientation</h3>
+            <p class="nea-card-group">Training Courses</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Safety training</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('Assets/Pics/Swing Stage Operator Occupant Orientation.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-02</span></div>
+            <h3 class="nea-card-title">Swing Stage Operator / Occupant Orientation</h3>
+            <p class="nea-card-group">Training Courses</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Operator training</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('Assets/Pics/Basic Swing Stage System Rigger Competency Course.avif')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-03</span></div>
+            <h3 class="nea-card-title">Basic Swing Stage System Rigger Competency Course</h3>
+            <p class="nea-card-group">Training Courses</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Rigger training</span><span class="nea-card-action">Details →</span></div>
+          </article>
+
+          <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('Assets/Pics/Refresher Training.webp')">
+            <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-04</span></div>
+            <h3 class="nea-card-title">Refresher Training</h3>
+            <p class="nea-card-group">Training Courses</p>
+            <div class="nea-card-footer"><span class="nea-card-type">Training update</span><span class="nea-card-action">Details →</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Popup for Catalog Cards -->
+<div class="nea-modal" id="nea-details-modal">
+  <div class="nea-modal-content">
+    <div class="nea-modal-header">
+      <div class="nea-modal-title-group">
+        <span class="nea-modal-badge" id="modal-badge">Category</span>
+        <h2 class="nea-modal-title" id="modal-title">Product Title</h2>
+        <span class="nea-modal-code" id="modal-code">CODE-00</span>
+        <div class="nea-modal-image-window" id="modal-image-window">
+          <img class="nea-modal-image" id="modal-image" src="" alt="">
+        </div>
+      </div>
+      <button class="nea-modal-close" id="modal-close">&times;</button>
+    </div>
+
+    <div class="nea-modal-body">
+      <div class="nea-modal-section">
+        <span class="nea-modal-label">Category</span>
+        <p class="nea-modal-value" id="modal-group">Product group information</p>
+      </div>
+
+      <div class="nea-modal-section">
+        <span class="nea-modal-label">Service Type</span>
+        <p class="nea-modal-value" id="modal-type">Service type</p>
+      </div>
+
+      <div class="nea-modal-section">
+        <span class="nea-modal-label">Description</span>
+        <div class="nea-description-reveal">
+          <p class="nea-modal-value" id="modal-description">
+            This is a detailed description of the product or service. It provides additional information about features, benefits, and specifications.
+          </p>
+
+          <div class="nea-modal-learnmore" id="modal-learnmore" aria-hidden="false">
+            <a href="#" class="nea-learnmore-btn" id="modal-learnmore-btn" role="button" aria-label="Learn more about this product">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="nea-modal-footer">
+      <button class="nea-modal-btn" id="modal-cancel">Close</button>
+      <button class="nea-modal-btn primary" id="modal-contact">Contact</button>
+    </div> -->
+  </div>
+</div>
+
+<!-- Modal Popup for Summary Cards -->
+<div class="nea-modal" id="nea-summary-modal">
+  <div class="nea-modal-content">
+    <div class="nea-modal-header">
+      <div class="nea-modal-title-group">
+        <span class="nea-modal-badge" id="summary-modal-badge">Overview</span>
+        <h2 class="nea-modal-title" id="summary-modal-title">Category Name</h2>
+        <p class="nea-modal-intro" id="summary-modal-intro">A concise summary of this category to help you decide what to explore next.</p>
+      </div>
+      <button class="nea-modal-close" id="summary-modal-close">&times;</button>
+    </div>
+
+    <div class="nea-modal-body">
+      <div class="nea-modal-section">
+        <span class="nea-modal-label">Description</span>
+        <p class="nea-modal-value" id="summary-modal-description">
+          Full description of this service or category.
+        </p>
+      </div>
+
+      <div class="nea-modal-section" id="summary-modal-details">
+        <!-- Additional details will be added here -->
+      </div>
+    </div>
+
+    <div class="nea-modal-footer">
+      <button class="nea-modal-btn" id="summary-modal-cancel">Close</button>
+      <button class="nea-modal-btn primary nea-card-action" id="summary-modal-contact">Contact</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ====== HEADER IMAGE SLIDER (auto) ======
+  (function(){
+    try {
+      const headerMain = document.querySelector('.nea-catalog-header > div:first-child');
+      if (!headerMain) { console.debug('nea-slider: headerMain not found'); }
+      else if (!document.querySelector('.nea-header-slider')) {
+        const cards = document.querySelectorAll('.nea-card[data-bg]');
+        const imageUrls = [];
+        cards.forEach(card => {
+          try {
+            const cssVar = (card.style && card.style.getPropertyValue) ? card.style.getPropertyValue('--nea-card-bg') : '';
+            const varMatch = (cssVar || '').match(/url\(([^)]+)\)/);
+            if (varMatch) imageUrls.push(varMatch[1].replace(/['\"]/g,'').trim());
+            else {
+              const comp = getComputedStyle(card).backgroundImage || '';
+              const m = comp.match(/url\(([^)]+)\)/);
+              if (m) imageUrls.push(m[1].replace(/['\"]/g,'').trim());
+            }
+          } catch (e) { /* ignore */ }
+        });
+
+        if (imageUrls.length > 0) {
+          const slider = document.createElement('div'); slider.className = 'nea-header-slider';
+          const track = document.createElement('div'); track.className = 'nea-slider-track';
+          slider.appendChild(track);
+
+          imageUrls.forEach(url => {
+            const slide = document.createElement('div'); slide.className = 'nea-slide';
+            const img = document.createElement('img'); img.src = url; img.alt = '';
+            slide.appendChild(img);
+            track.appendChild(slide);
+          });
+
+          // insert the slider as a direct child of .nea-catalog-header immediately after the headerMain
+          const parent = headerMain.parentNode;
+          parent.insertBefore(slider, headerMain.nextSibling);
+          // make sure the slider occupies the left header column in the grid
+          slider.style.gridColumn = '1 / 2';
+
+          let idx = 0; let slideWidth = 0;
+
+          function getVerticalMargin(el) {
+            const cs = getComputedStyle(el);
+            return (parseFloat(cs.marginTop) || 0) + (parseFloat(cs.marginBottom) || 0);
+          }
+
+          function setSizes() {
+            // determine height based on the header main column's content (title + description)
+            let h = headerMain.offsetHeight;
+            // fallback to a reasonable default if measurement fails
+            if (!h || h < 80) h = 200;
+            slider.style.height = h + 'px';
+
+            slideWidth = slider.clientWidth;
+            Array.from(track.children).forEach(slide => {
+              slide.style.width = slideWidth + 'px';
+              slide.style.height = slider.clientHeight + 'px';
+            });
+            track.style.transition = 'transform 0s';
+            track.style.transform = 'translate3d(' + (-idx * slideWidth) + 'px,0,0)';
+            requestAnimationFrame(() => track.style.transition = 'transform 0.6s ease');
+          }
+
+          setSizes();
+          window.addEventListener('resize', setSizes);
+
+          let timer = null;
+          function startAuto() { timer = setInterval(() => { idx = (idx + 1) % track.children.length; track.style.transform = 'translate3d(' + (-idx * slideWidth) + 'px,0,0)'; }, 3500); }
+          function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+          startAuto();
+
+          slider.addEventListener('mouseenter', stopAuto);
+          slider.addEventListener('mouseleave', () => { stopAuto(); startAuto(); });
+
+          // basic touch support
+          let startX = 0, deltaX = 0;
+          slider.addEventListener('touchstart', function(e){ stopAuto(); startX = e.touches[0].clientX; track.style.transition = ''; });
+          slider.addEventListener('touchmove', function(e){ deltaX = e.touches[0].clientX - startX; track.style.transform = 'translate3d(' + (-idx * slideWidth + deltaX) + 'px,0,0)'; });
+          slider.addEventListener('touchend', function(){ if (Math.abs(deltaX) > (slideWidth * 0.15)) { idx += (deltaX > 0) ? -1 : 1; idx = Math.max(0, Math.min(idx, track.children.length - 1)); } track.style.transition = 'transform 0.4s ease'; track.style.transform = 'translate3d(' + (-idx * slideWidth) + 'px,0,0)'; deltaX = 0; startAuto(); });
+        }
+      }
+    } catch (err) { console.error('nea-slider init error', err); }
+  })();
+
+  // ====== MOBILE FILTER TOGGLE ======
+  const filterPanel = document.querySelector('.nea-filter-panel');
+  const filterToggle = document.getElementById('nea-filter-toggle');
+
+  function setFilterPanelExpanded(isExpanded) {
+    if (!filterPanel || !filterToggle) return;
+
+    filterPanel.classList.toggle('is-expanded', isExpanded);
+    filterPanel.classList.toggle('is-collapsed', !isExpanded);
+    filterToggle.setAttribute('aria-expanded', String(isExpanded));
+    filterToggle.setAttribute('aria-label', isExpanded ? 'Hide filters' : 'Show filters');
+  }
+
+  if (filterToggle) {
+    filterToggle.addEventListener('click', function() {
+      const isExpanded = filterPanel.classList.contains('is-expanded');
+      setFilterPanelExpanded(!isExpanded);
+    });
+
+    setFilterPanelExpanded(false);
+  }
+
+  // ====== CATALOG CARDS MODAL ======
+  const modal = document.getElementById('nea-details-modal');
+  const closeBtn = document.getElementById('modal-close');
+  const cancelBtn = document.getElementById('modal-cancel');
+  const contactBtn = document.getElementById('modal-contact');
+  const detailsButtons = document.querySelectorAll('.nea-card-action');
+
+  // Open modal when clicking Details button
+  detailsButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Get the card element
+      const card = this.closest('.nea-card');
+      if (!card) return;
+
+      // Extract data from the card
+      const title = card.querySelector('.nea-card-title')?.textContent || 'Product';
+      const code = card.querySelector('.nea-card-code')?.textContent || 'N/A';
+      const group = card.querySelector('.nea-card-group')?.textContent || 'Category';
+      const type = card.querySelector('.nea-card-type')?.textContent || 'Type';
+      const badge = card.querySelector('.nea-card-badge')?.textContent || 'Category';
+      const cardBackground = card.style.getPropertyValue('--nea-card-bg') || '';
+      const imageMatch = cardBackground.match(/url\(([^)]+)\)/);
+      const imageUrl = imageMatch ? imageMatch[1].replace(/[\'"]/g, '').trim() : '';
+
+      // Generate a detailed description based on the title
+      const description = getDescription(title, group, type);
+
+      // Update modal content
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-code').textContent = code;
+      document.getElementById('modal-group').textContent = group;
+      document.getElementById('modal-type').textContent = type;
+      document.getElementById('modal-badge').textContent = badge;
+      document.getElementById('modal-description').textContent = description;
+      const modalImage = document.getElementById('modal-image');
+      const modalImageWindow = document.getElementById('modal-image-window');
+      modalImage.src = imageUrl;
+      modalImage.alt = title;
+      modalImage.hidden = !imageUrl;
+
+      modalImageWindow.classList.remove('is-ready');
+      modalImageWindow.style.setProperty('--nea-image-travel', '0px');
+
+      // Display the modal before measuring it so the image viewport has a real width.
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      if (imageUrl) {
+        const updateImageTravel = function() {
+          const renderedHeight = modalImage.naturalWidth
+            ? modalImage.naturalHeight * (modalImageWindow.clientWidth / modalImage.naturalWidth)
+            : modalImage.clientHeight;
+          const travel = Math.max(0, renderedHeight - modalImageWindow.clientHeight);
+          modalImageWindow.style.setProperty('--nea-image-travel', travel + 'px');
+          modalImageWindow.classList.add('is-ready');
+        };
+
+        if (modalImage.complete) requestAnimationFrame(updateImageTravel);
+        else modalImage.addEventListener('load', updateImageTravel, { once: true });
+      }
+
+      // Show modal
+      // Build a predictable placeholder URL for the product page (to be implemented later).
+      const productUrl = '/products/' + encodeURIComponent(code.toLowerCase().replace(/\s+/g,'-')) + '.html';
+      modal.dataset.productUrl = productUrl;
+      // Update LEARN MORE button href if present
+      const learnBtn = document.getElementById('modal-learnmore-btn');
+      if (learnBtn) learnBtn.setAttribute('href', productUrl);
+    });
+  });
+
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  cancelBtn?.addEventListener('click', closeModal);
+
+  // Close modal when clicking outside
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Contact button action
+  contactBtn?.addEventListener('click', function() {
+    const title = document.getElementById('modal-title').textContent;
+    alert(`Thank you for your interest in: ${title}.\n\nOnce implemented, this will redirect to a contact form.`);
+    closeModal();
+  });
+
+  // ====== SUMMARY CARDS MODAL ======
+  const summaryModal = document.getElementById('nea-summary-modal');
+  const summaryCloseBtn = document.getElementById('summary-modal-close');
+  const summaryCancelBtn = document.getElementById('summary-modal-cancel');
+  const summaryContactBtn = document.getElementById('summary-modal-contact');
+  const summaryCards = document.querySelectorAll('.nea-summary-card');
+  let lastSummaryTrigger = null;
+
+  // Summary card descriptions and details
+  const summaryDescriptions = {
+    'Rentals': {
+      description: 'High-performance swing stages and hoists for immediate project mobilization. Our rental equipment is designed for rapid deployment and maximum safety compliance.',
+      details: 'Access to a wide range of swing stages, rigging components, and lifting equipment available immediately for your projects.'
+    },
+    'Systems': {
+      description: 'Permanent engineered anchors and lifelines designed for maximum building safety. All systems are designed and certified by Professional Engineers.',
+      details: 'Permanent anchorage solutions, lifeline systems, façade access options, and custom-engineered specialized structures.'
+    },
+    'Inspections': {
+      description: 'Certified load testing and P. Eng reports to ensure total regulatory compliance. We provide comprehensive inspection and certification services.',
+      details: 'Annual visual inspections, load testing, certified engineering reports, and compliance audits.'
+    },
+    'Training': {
+      description: 'Professional hands-on certification to build safer and more efficient crews. Our training programs are OSHA-compliant and industry-recognized.',
+      details: 'Fall protection orientation courses, operator training, rigger competency programs, and refresher training.'
+    }
+  };
+
+  // Open summary modal when clicking summary card
+  summaryCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      // remember trigger for returning focus
+      lastSummaryTrigger = document.activeElement;
+
+      const title = this.querySelector('.nea-summary-number')?.textContent || 'Category';
+      const fullText = this.querySelector('.nea-summary-label')?.textContent || 'Description';
+
+      if (summaryDescriptions[title]) {
+        document.getElementById('summary-modal-title').textContent = title;
+        document.getElementById('summary-modal-description').textContent = summaryDescriptions[title].description;
+        
+        const detailsDiv = document.getElementById('summary-modal-details');
+        detailsDiv.innerHTML = `
+        <span class="nea-modal-label">More Details</span>
+          <p class="nea-modal-value">${summaryDescriptions[title].details}</p>
+        `;
+      }
+
+      summaryModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // focus the close button for keyboard users
+      setTimeout(() => {
+        summaryCloseBtn?.focus();
+      }, 40);
+    });
+  });
+
+  // Close summary modal
+  function closeSummaryModal() {
+    summaryModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    // return focus to the trigger if possible
+    setTimeout(() => {
+      try {
+        if (lastSummaryTrigger && typeof lastSummaryTrigger.focus === 'function') lastSummaryTrigger.focus();
+      } catch (err) {
+        // ignore
+      }
+      lastSummaryTrigger = null;
+    }, 40);
+  }
+
+  summaryCloseBtn.addEventListener('click', closeSummaryModal);
+  summaryCancelBtn.addEventListener('click', closeSummaryModal);
+
+  // Close summary modal when clicking outside
+  summaryModal.addEventListener('click', function(e) {
+    if (e.target === summaryModal) {
+      closeSummaryModal();
+    }
+  });
+
+  // Summary contact button action
+  summaryContactBtn.addEventListener('click', function() {
+    const title = document.getElementById('summary-modal-title').textContent;
+    alert(`Thank you for your interest in: ${title}.\n\nOnce implemented, this will redirect to a contact form.`);
+    closeSummaryModal();
+  });
+
+  // Generate descriptions based on title
+  function getDescription(title, group, type) {
+    const descriptions = {
+      'Standard Straight Swing Stage': 'The standard straight swing stage provides safe, reliable access for façade work. Designed for maximum versatility, it is ideal for most suspended access projects.',
+      
+      'Sloped Stages': 'Sloped stages are specifically designed for buildings with sloped roofs or façades, providing a safe working platform at varying pitch angles.',
+      
+      'Multi-Point & Large-Scale Dance Floor Platforms': 'Large-scale dance floor platforms with multiple anchor points distribute loads evenly, enabling larger and heavier work applications.',
+      
+      'Custom Configurations': 'Custom configuration solutions tailored to the specific requirements of your project. Our engineering team designs unique systems for complex challenges.',
+      
+      'Specialty Shapes': 'Specialty-shaped platforms for buildings with unique or unconventional geometries, ensuring safety and efficiency in any architectural configuration.',
+      
+      'Horizontal Lifelines': 'Permanent horizontal lifeline systems installed on roofs for fall protection. They comply with national and international safety regulations.',
+      
+      'Roof Anchors': 'Permanent high-strength roof anchors for fall protection systems. Installed to certified engineering specifications.',
+      
+      'Annual Visual Inspections': 'Comprehensive annual visual inspections of all access and anchorage systems to ensure regulatory compliance and operational safety.',
+      
+      'Anchor Load Testing': 'Professional anchor load testing to verify structural integrity and load capacity in accordance with engineering standards.'
+    };
+
+    return descriptions[title] || `${title} is a specialized product or service in the "${group}" group. It is classified as: ${type}.\n\nFor more specific information about technical specifications, availability, and pricing, please contact our team.`;
+  }
+</script>
+
+</body>
+</html>
+
