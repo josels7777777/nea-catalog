@@ -51,17 +51,17 @@
 
 
 .nea-global-header__announcement-inner {
-    min-height: 31px;
-
+    min-height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 6px 20px;
+    padding: 7px 20px;
 
     text-align: center;
 
     font-size: 12px;
+    font-weight: 500;
     line-height: 1.25;
 
     text-transform: uppercase;
@@ -150,7 +150,7 @@
 
     color: #020202;
 
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
 
     white-space: nowrap;
@@ -196,8 +196,7 @@
 ========================= */
 
 .nea-global-header__catalog-desktop {
-
-    padding: 11px 19px;
+    padding: 12px 22px;
 
     border-radius: 999px;
 
@@ -205,11 +204,11 @@
 
     color: #ffffff !important;
 
+    font-size: 14px !important;
     font-weight: 700 !important;
 
     box-shadow:
-        0 5px 14px
-        rgba(146, 25, 25, 0.18);
+        0 6px 16px rgba(146, 25, 25, 0.20);
 
     transition:
         background 0.2s ease,
@@ -381,37 +380,30 @@
 
 
 .nea-global-header__mobile-nav {
-
     display: flex;
     flex-direction: column;
-
     align-items: flex-end;
 
-    gap: 0;
+    gap: 4px;
 
-    padding:
-        0 24px 28px;
+    padding: 18px 24px 28px;
 }
 
 
 .nea-global-header__mobile-nav a {
+    width: auto;
 
-    width: 100%;
-
-    display: flex;
-
+    display: inline-flex;
     justify-content: flex-end;
 
-    padding: 14px 0;
+    padding: 12px 4px;
 
     color: #131F39;
 
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 400;
 
-    border-bottom:
-        1px solid
-        rgba(19, 31, 57, 0.055);
+    border-bottom: none;
 
     transition:
         color 0.18s ease,
@@ -420,11 +412,8 @@
 
 
 .nea-global-header__mobile-nav a:hover {
-
     color: #921919;
-
-    transform:
-        translateX(-3px);
+    transform: translateX(-4px);
 }
 
 
@@ -529,14 +518,11 @@
 @media (max-width: 600px) {
 
     .nea-global-header__announcement-inner {
+        min-height: 52px;
+        padding: 7px 28px;
 
-        min-height: 56px;
-
-        padding:
-            7px 36px;
-
-        font-size: 13px;
-
+        font-size: 12px;
+        font-weight: 600;
         line-height: 1.25;
 
         flex-wrap: wrap;
