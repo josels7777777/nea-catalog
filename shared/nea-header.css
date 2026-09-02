@@ -8,6 +8,10 @@
    GLOBAL RESET
 ========================================================= */
 
+:root {
+    --nea-header-announcement-height: 32px;
+}
+
 .nea-global-header,
 .nea-global-header__announcement {
     width: 100%;
@@ -69,7 +73,7 @@
 
 /* =========================================================
    HEADER ROOT
-   Sticky header — announcement remains above and scrolls away
+   Sticky header — keeps the full header fixed while scrolling
 ========================================================= */
 
 .nea-global-header {
@@ -80,12 +84,22 @@
     background: #ffffff;
 }
 
+.nea-global-header__announcement {
+    position: sticky;
+    top: 0;
+    z-index: 5001;
+}
+
 
 /* =========================================================
    MAIN HEADER
 ========================================================= */
 
 .nea-global-header__main {
+    position: sticky;
+    top: var(--nea-header-announcement-height);
+    z-index: 5000;
+
     width: 100%;
 
     background: #ffffff;
@@ -477,6 +491,10 @@
 ========================================================= */
 
 @media (max-width: 600px) {
+
+    :root {
+        --nea-header-announcement-height: 52px;
+    }
 
     .nea-global-header__announcement-inner {
         min-height: 52px;
