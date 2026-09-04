@@ -51,13 +51,13 @@
 
 
             <!-- Catalog CTA
-                 Visible outside the hamburger on tablet/mobile -->
+                 Visible outside the hamburger on tablet/mobile
             <a
                 class="nea-global-header__catalog-mobile"
                 href="https://catalog.nationalexterioraccess.com/"
             >
                 Catalog
-            </a>
+            </a> -->
 
 
             <!-- Desktop Navigation -->
