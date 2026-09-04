@@ -91,13 +91,14 @@
                 </a>
 
 
-                <!-- Catalog CTA - Desktop -->
-                /* <a
+                <!-- Catalog CTA - Desktop
+                <a
                     class="nea-global-header__catalog-desktop"
                     href="https://catalog.nationalexterioraccess.com/"
                 >
                     Catalog
-                </a> */
+                </a>
+                -->
 
             </nav>
 
