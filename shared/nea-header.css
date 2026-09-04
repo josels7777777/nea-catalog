@@ -450,12 +450,20 @@
     }
 
     .nea-global-header__inner {
+        position: relative;
+
         min-height: 83px;
 
         padding:
             0 clamp(22px, 4vw, 42px);
 
         gap: 18px;
+    }
+
+    .nea-global-header__logo-link {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .nea-global-header__logo {
@@ -476,7 +484,8 @@
     .nea-global-header__toggle {
         display: block;
 
-        margin-left: 4px;
+        margin-left: auto;
+        z-index: 1;
     }
 
     .nea-global-header__mobile-menu {
