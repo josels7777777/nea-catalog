@@ -44,7 +44,7 @@
             >
                 <img
                     class="nea-global-header__logo"
-                    src="https://catalog.nationalexterioraccess.com/Assets/logo.svg"
+                    src="https://catalog.nationalexterioraccess.com/Assets/National_logo.jpg"
                     alt="National Exterior Access"
                 >
             </a>
@@ -92,12 +92,12 @@
 
 
                 <!-- Catalog CTA - Desktop -->
-                <a
+                /* <a
                     class="nea-global-header__catalog-desktop"
                     href="https://catalog.nationalexterioraccess.com/"
                 >
                     Catalog
-                </a>
+                </a> */
 
             </nav>
 
