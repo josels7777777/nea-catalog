@@ -56,6 +56,9 @@ body {
     top: var(--nea-header-total-height, 138px);
     z-index: 1;
     padding-top: 32px;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+    will-change: opacity;
 }
 
 .nea-product-hero {

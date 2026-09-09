@@ -1,9 +1,10 @@
 (function () {
     const standardPanels = Array.from(document.querySelectorAll('[data-scroll-panel]:not(.nea-product-summary-mobile)'));
     const mobilePanels = Array.from(document.querySelectorAll('.nea-product-summary-mobile'));
+    const heroAnchor = document.querySelector('.nea-product-hero-anchor');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if ((!standardPanels.length && !mobilePanels.length) || reduceMotion) return;
+    if ((!standardPanels.length && !mobilePanels.length)) return;
 
     let frameRequested = false;
 
@@ -17,6 +18,25 @@
         const panels = compactLayout
             ? mobilePanels.concat(standardPanels)
             : standardPanels;
+
+        if (heroAnchor && panels[0]) {
+            const firstPanelTop = panels[0].getBoundingClientRect().top;
+            const fadeStart = window.innerHeight * 0.78;
+            const fadeEnd = window.innerHeight * 0.34;
+            const fadeProgress = Math.max(0, Math.min(1, (fadeStart - firstPanelTop) / (fadeStart - fadeEnd)));
+            const heroOpacity = reduceMotion ? 1 : 1 - (fadeProgress * 0.96);
+
+            heroAnchor.style.opacity = String(heroOpacity);
+        }
+
+        if (reduceMotion) {
+            panels.forEach(function (panel) {
+                panel.style.removeProperty('opacity');
+                panel.style.removeProperty('transform');
+                panel.classList.add('is-active');
+            });
+            return;
+        }
 
         panels.forEach(function (panel) {
             const bounds = panel.getBoundingClientRect();
