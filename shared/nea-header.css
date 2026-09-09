@@ -10,6 +10,12 @@
 
 :root {
     --nea-header-announcement-height: 32px;
+    --nea-header-main-height: 106px;
+    --nea-header-total-height: 138px;
+}
+
+body {
+    padding-top: var(--nea-header-total-height);
 }
 
 .nea-global-header,
@@ -34,12 +40,15 @@
 
 
 /* =========================================================
-   ANNOUNCEMENT BAR
-   Normal document flow — NOT sticky
+    ANNOUNCEMENT BAR
+    Fixed above the main header
 ========================================================= */
 
 .nea-global-header__announcement {
-    position: relative;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
     z-index: 5001;
 
     background: #b70707;
@@ -72,21 +81,21 @@
 
 
 /* =========================================================
-   HEADER ROOT
-   Sticky header — keeps the full header fixed while scrolling
+    HEADER ROOT
+    Fixed header — stays in one layer while scrolling
 ========================================================= */
 
 .nea-global-header {
-    position: sticky;
-    top: 0;
+     position: fixed;
+     top: var(--nea-header-announcement-height);
+     left: 0;
+     right: 0;
     z-index: 5000;
 
     background: #ffffff;
 }
 
 .nea-global-header__announcement {
-    position: sticky;
-    top: 0;
     z-index: 5001;
 }
 
@@ -96,8 +105,8 @@
 ========================================================= */
 
 .nea-global-header__main {
-    position: sticky;
-    top: var(--nea-header-announcement-height);
+    position: relative;
+    top: auto;
     z-index: 5000;
 
     width: 100%;
@@ -443,6 +452,11 @@
 
 @media (max-width: 1024px) {
 
+    :root {
+        --nea-header-main-height: 83px;
+        --nea-header-total-height: 114px;
+    }
+
     .nea-global-header__announcement-inner {
         min-height: 31px;
 
@@ -503,6 +517,8 @@
 
     :root {
         --nea-header-announcement-height: 52px;
+        --nea-header-main-height: 100px;
+        --nea-header-total-height: 152px;
     }
 
     .nea-global-header__announcement-inner {
