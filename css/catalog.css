@@ -1324,7 +1324,7 @@ body {
 .nea-modal-image-window .nea-modal-image {
     margin-top: 0;
     transform: translateY(0);
-    animation: nea-modal-image-pan 14s ease-in-out infinite alternate;
+    animation: nea-modal-image-pan 9s ease-in-out infinite alternate;
     animation-play-state: paused;
 }
 
