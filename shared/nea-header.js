@@ -45,8 +45,8 @@
                 <img
                     class="nea-global-header__logo"
                     id="nea-header-logo"
-                    src="/Assets/nea-logo-animated.svg"
-                    data-static-src="/Assets/nea-logo-static.svg"
+                    src="https://catalog.nationalexterioraccess.com/Assets/nea-logo-animated.svg"
+                    data-static-src="https://catalog.nationalexterioraccess.com/Assets/nea-logo-static.svg"
                     alt="National Exterior Access"
                 >
             </a>
@@ -203,8 +203,8 @@
 
     const logo = header.querySelector("#nea-header-logo");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const animatedLogoSrc = logo?.getAttribute("src") || "/Assets/nea-logo-animated.svg";
-    const staticLogoSrc = logo?.dataset.staticSrc || "/Assets/nea-logo-static.svg";
+    const animatedLogoSrc = logo?.getAttribute("src") || "https://catalog.nationalexterioraccess.com/Assets/nea-logo-animated.svg";
+    const staticLogoSrc = logo?.dataset.staticSrc || "https://catalog.nationalexterioraccess.com/Assets/nea-logo-static.svg";
 
     if (logo) {
         logo.addEventListener("error", function () {
