@@ -9,9 +9,9 @@
 ========================================================= */
 
 :root {
-    --nea-header-announcement-height: 32px;
+    --nea-header-announcement-height: 40px;
     --nea-header-main-height: 106px;
-    --nea-header-total-height: 138px;
+    --nea-header-total-height: 146px;
 }
 
 body {
@@ -57,7 +57,7 @@ body {
 
 .nea-global-header__announcement-inner {
     width: 100%;
-    min-height: 32px;
+    min-height: var(--nea-header-announcement-height);
 
     display: flex;
     align-items: center;
@@ -453,12 +453,13 @@ body {
 @media (max-width: 1024px) {
 
     :root {
+        --nea-header-announcement-height: 33px;
         --nea-header-main-height: 83px;
-        --nea-header-total-height: 114px;
+        --nea-header-total-height: 116px;
     }
 
     .nea-global-header__announcement-inner {
-        min-height: 31px;
+        min-height: var(--nea-header-announcement-height);
 
         font-size: 10px;
     }
