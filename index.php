@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/css/catalog.css">
     <link rel="stylesheet" href="/shared/nea-header.css">
+    <link rel="stylesheet" href="/shared/nea-footer.css">
 
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
@@ -699,6 +700,8 @@
     </div>
   </section>
 
+  <div id="nea-global-footer-slot"></div>
+
   <!-- Modal Popup for Catalog Cards -->
   <div class="nea-modal" id="nea-details-modal">
     <div class="nea-modal-content">
@@ -779,6 +782,7 @@
   </div>
 
   <script src="shared/nea-header.js"></script>
+  <script src="shared/nea-footer.js"></script>
   <script src="js/catalog.js"></script>
   
 </body>
