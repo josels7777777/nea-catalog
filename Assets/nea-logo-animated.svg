@@ -47,10 +47,13 @@
   <g class="wordmark" fill="#000" stroke="#000" stroke-width="1.5" paint-order="stroke fill" style="font-kerning:normal;text-rendering:geometricPrecision">
     <text x="20" y="365" textLength="205" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="282">N</text>
     <text x="225" y="365" textLength="158" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">A</text>
-    <text x="370" y="365" textLength="137" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">T</text>
+    <path id="letter-t" fill="#000" stroke="none" aria-label="T" d="M372 202H376C378 207 382 208 390 208H482C490 208 494 207 496 202H500L503 246H496C493 224 487 219 470 219H448V341C448 355 451 359 470 360V365H402V360C421 359 424 355 424 341V219H402C385 219 379 224 376 246H369Z"/>
     <text x="614" y="365" textLength="158" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">O</text>
     <text x="791" y="365" textLength="171" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">N</text>
-    <text x="0" y="365" transform="translate(969 0) scale(.72 1)" font-family="Times New Roman,Times,serif" font-size="282">A</text>
+    <g id="access-a" aria-label="A">
+      <path d="M1031.5 177h22L991 365h-22Z"/>
+      <path d="M1031.5 177h22L1116 365h-22Z"/>
+    </g>
     <text x="0" y="365" transform="translate(1130 0) scale(.85 1)" font-family="Times New Roman,Times,serif" font-size="236">L</text>
     <text x="602" y="473" textLength="649" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-size="95">Exterior Access</text>
   </g>
@@ -63,18 +66,18 @@
 
   <g id="maple-leaf">
     <path class="leaf-part leaf-red" fill="#e62229" d="M561.5 20 L584 67 L609 52 L596 123 L605 126 L629 95 L638 115 L674 107 L664 148 L678 157 L608 209 L611 233 L573 224 L573 365 L550 365 L550 224 L512 233 L515 209 L445 157 L459 148 L449 107 L485 115 L494 95 L518 126 L527 123 L514 52 L539 67 Z"/>
-    <path class="leaf-part leaf-dark" fill="#c72229" d="M449 107 485 115 494 95 561.5 224 550 224 512 233 515 209 445 157 459 148Z"/>
+    <path class="leaf-part leaf-dark" fill="#c72229" d="M449 107 C500 132 535 170 561.5 224 L550 224 512 233 515 209 445 157 459 148Z"/>
     <path class="leaf-part leaf-light" fill="#f2f2f2" d="M561.5 20 584 67 609 52 596 123 605 126 629 95 638 115 674 107c-51 26-85.5 63-112.5 117Z"/>
     <path class="leaf-part leaf-shadow" fill="#ccc" d="M561.5 224 C588.5 170 623 133 674 107 L664 148 678 157 608 209 611 233 573 224 573 365 561.5 365Z"/>
     <path class="leaf-part leaf-stem" fill="#c72229" d="M550 224h11.5v141H550Z"/>
-    <path class="leaf-part leaf-stem" fill="#f2f2f2" d="M561.5 224H573v141h-11.5Z"/>
+    <path class="leaf-part leaf-stem" fill="#ccc" d="M561.5 224H573v141h-11.5Z"/>
     <path class="leaf-outline" d="M561.5 20 L584 67 L609 52 L596 123 L605 126 L629 95 L638 115 L674 107 L664 148 L678 157 L608 209 L611 233 L573 224 L573 365 L550 365 L550 224 L512 233 L515 209 L445 157 L459 148 L449 107 L485 115 L494 95 L518 126 L527 123 L514 52 L539 67 Z"/>
   </g>
 
   <g><g id="rigging" fill="#d61f2c" stroke="#d61f2c">
-    <g id="anchors" class="rigging-fixed" stroke-width="2"><path d="M978 177v104M1107 177v104"/><path d="M975 281h7v9h-7zM1104 281h7v9h-7z"/></g>
+    <g id="anchors" class="rigging-fixed" stroke-width="2"><path d="M978 177v104M1107 177v104"/></g>
     <g id="cables" class="cable-live" fill="none" stroke-width="2"><path d="M978 177v198M1107 177v198"/></g>
-    <g id="stage" class="stage-solid" stroke-width="2"><path fill="none" d="M970 290h145v23H970zM977 290v23M1023 290v23M1062 290v23M1108 290v23"/><path d="M970 302h145v12H970z"/><path d="M976 314h133v4H976z"/></g>
+    <g id="stage" class="stage-solid" stroke-width="2"><path fill="none" d="M970 290h145v23H970zM977 290v23M1023 290v23M1062 290v23M1108 290v23"/><path id="stirrups" d="M974 281h8v37h-8zM1103 281h8v37h-8z"/><path d="M970 302h145v12H970z"/><path d="M976 314h133v4H976z"/></g>
   </g></g>
 
   <g clip-path="url(#logo-clip)" pointer-events="none"><rect class="scan" x="0" y="15" width="190" height="465" fill="url(#scan-gradient)"/></g>
