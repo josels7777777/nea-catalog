@@ -884,6 +884,73 @@ body {
     cursor: pointer;
 }
 
+.nea-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.nea-pagination-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nea-pagination-button,
+.nea-pagination-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid var(--nea-border);
+    border-radius: 10px;
+    background: var(--nea-white);
+    color: var(--nea-navy);
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.nea-pagination-button:hover:not(:disabled),
+.nea-pagination-button:focus-visible,
+.nea-pagination-page:hover,
+.nea-pagination-page.is-active {
+    border-color: var(--nea-red-main);
+    background: var(--nea-red-main);
+    color: var(--nea-white);
+}
+
+.nea-pagination-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+}
+
+.nea-pagination-page {
+    width: 38px;
+    padding: 8px;
+}
+
+.nea-pagination[hidden] {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .nea-pagination {
+        gap: 5px;
+    }
+
+    .nea-pagination-button {
+        padding: 8px 9px;
+    }
+}
+
 .nea-summary-card>button.nea-summary-cta {
     display: inline-flex;
     align-items: center;

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 507" role="img" aria-labelledby="title desc">
+  <title id="title">National Exterior Access — Engineering Drawing to Rigged &amp; Ready</title>
+  <desc id="desc">Los anclajes y cables aparecen suavemente, la plataforma sube desde abajo, la hoja de maple se ensambla y, tras estabilizarse, el suspended stage vuelve por completo a su posición inferior y sube nuevamente.</desc>
+  <defs>
+    <linearGradient id="scan-gradient" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="logo-clip">
+      <rect x="15" y="15" width="1240" height="465" rx="4"/>
+    </clipPath>
+  </defs>
+  <style>
+    .wordmark{opacity:0;animation:wordmark-in .5s ease-out 3.1s forwards}
+    .draft{fill:none;stroke:#c72229;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+    .anchor-draft{stroke-dasharray:12;stroke-dashoffset:12;animation:draw-anchor .34s ease-out 3.85s forwards}
+    .cable-draft{stroke-dasharray:116;stroke-dashoffset:116;animation:draw-cable .46s ease-in-out 4.15s forwards}
+    .stage-draft{stroke-dasharray:340;stroke-dashoffset:340;animation:draw-stage .75s ease-out 4.5s forwards}
+    .rigging-fixed{opacity:0;animation:fine-fade 1.4s ease-out 3.85s forwards}
+    .cable-live{opacity:0;transform:scaleY(1);transform-box:fill-box;transform-origin:50% 0;animation:fine-fade 1.4s ease-out 3.85s forwards,cable-retract 4s cubic-bezier(.18,.72,.2,1) 5.65s forwards,cable-cycle 5s ease-in-out 17.9s forwards}
+    .stage-solid{opacity:0;transform:translateY(85px);transform-box:fill-box;transform-origin:center;animation:fine-fade 1.4s ease-out 3.85s forwards,stage-load 4s cubic-bezier(.18,.72,.2,1) 5.65s forwards,stage-cycle 5s ease-in-out 17.9s forwards}
+    .leaf-part{opacity:0;transform:scale(.965);transform-box:fill-box;transform-origin:50% 72%;animation:leaf-build .68s cubic-bezier(.2,.8,.2,1) forwards}
+    .leaf-red{animation-delay:1.65s}.leaf-dark{animation-delay:1.82s}.leaf-light{animation-delay:1.99s}.leaf-shadow{animation-delay:2.16s}.leaf-stem{animation-delay:2.30s}
+    .leaf-outline{fill:none;stroke:#000;stroke-width:1;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:0;animation:fine-fade .6s ease-out .12s forwards,leaf-draw 1.15s ease-out .25s forwards,outline-settle .25s ease 1.4s forwards}
+    .scan{opacity:0;transform:translateX(-260px);animation:inspection 470ms ease-in-out 9.85s forwards}
+    .ready-dot{opacity:0;animation:ready .34s ease-out 10.4s forwards}
+    @keyframes draw-anchor{0%{opacity:0;stroke-dashoffset:12}100%{opacity:1;stroke-dashoffset:0}}
+    @keyframes draw-cable{0%{opacity:.35;stroke-dashoffset:116}100%{opacity:1;stroke-dashoffset:0}}
+    @keyframes draw-stage{0%{opacity:.35;stroke-dashoffset:340}100%{opacity:1;stroke-dashoffset:0}}
+    @keyframes wordmark-in{to{opacity:1}}
+    @keyframes fine-fade{from{opacity:0}to{opacity:1}}
+    @keyframes cable-retract{0%{transform:scaleY(1)}88%{transform:scaleY(.561)}100%{transform:scaleY(.571)}}
+    @keyframes cable-cycle{0%{transform:scaleY(.571)}45%{transform:scaleY(1)}55%{transform:scaleY(1)}100%{transform:scaleY(.571)}}
+    @keyframes stage-load{0%{transform:translateY(85px)}88%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+    @keyframes stage-cycle{0%{opacity:1;transform:translateY(0)}45%{opacity:1;transform:translateY(85px)}55%{opacity:1;transform:translateY(85px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes leaf-build{to{opacity:1;transform:scale(1)}}
+    @keyframes leaf-draw{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}
+    @keyframes outline-settle{to{opacity:1}}
+    @keyframes inspection{0%{opacity:0;transform:translateX(-260px)}20%{opacity:.75}75%{opacity:.48}100%{opacity:0;transform:translateX(1320px)}}
+    @keyframes ready{0%{opacity:0;transform:scale(.6)}55%{opacity:1;transform:scale(1.18)}100%{opacity:0;transform:scale(1)}}
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important}.wordmark,.leaf-part,.rigging-fixed,.stage-solid{opacity:1!important;transform:none!important}.cable-live{opacity:1!important;transform:scaleY(.571)!important}.draft,.scan,.ready-dot{display:none!important}.leaf-outline{opacity:1!important;stroke-dashoffset:0!important}
+    }
+  </style>
+
+  <g class="wordmark" fill="#000" stroke="#000" stroke-width="1.5" paint-order="stroke fill" style="font-kerning:normal;text-rendering:geometricPrecision">
+    <text x="20" y="365" textLength="205" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="282">N</text>
+    <text x="225" y="365" textLength="158" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">A</text>
+    <text x="370" y="365" textLength="137" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">T</text>
+    <text x="614" y="365" textLength="158" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">O</text>
+    <text x="791" y="365" textLength="171" lengthAdjust="spacingAndGlyphs" font-family="Times New Roman,Times,serif" font-size="236">N</text>
+    <text x="0" y="365" transform="translate(969 0) scale(.72 1)" font-family="Times New Roman,Times,serif" font-size="282">A</text>
+    <text x="0" y="365" transform="translate(1130 0) scale(.85 1)" font-family="Times New Roman,Times,serif" font-size="236">L</text>
+    <text x="602" y="473" textLength="649" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-size="95">Exterior Access</text>
+  </g>
+
+  <g><g id="engineering-drawing" class="draft">
+    <path class="anchor-draft" d="M971 177h14M1100 177h14"/>
+    <path class="cable-draft" d="M978 177v113M1107 177v113"/>
+    <path class="stage-draft" d="M970 290h145v24H970zM977 290v24M1023 290v24M1062 290v24M1108 290v24"/>
+  </g></g>
+
+  <g id="maple-leaf">
+    <path class="leaf-part leaf-red" fill="#e62229" d="M561.5 20 L584 67 L609 52 L596 123 L605 126 L629 95 L638 115 L674 107 L664 148 L678 157 L608 209 L611 233 L573 224 L573 365 L550 365 L550 224 L512 233 L515 209 L445 157 L459 148 L449 107 L485 115 L494 95 L518 126 L527 123 L514 52 L539 67 Z"/>
+    <path class="leaf-part leaf-dark" fill="#c72229" d="M449 107 485 115 494 95 561.5 224 550 224 512 233 515 209 445 157 459 148Z"/>
+    <path class="leaf-part leaf-light" fill="#f2f2f2" d="M561.5 20 584 67 609 52 596 123 605 126 629 95 638 115 674 107c-51 26-85.5 63-112.5 117Z"/>
+    <path class="leaf-part leaf-shadow" fill="#ccc" d="M561.5 224 C588.5 170 623 133 674 107 L664 148 678 157 608 209 611 233 573 224 573 365 561.5 365Z"/>
+    <path class="leaf-part leaf-stem" fill="#c72229" d="M550 224h11.5v141H550Z"/>
+    <path class="leaf-part leaf-stem" fill="#f2f2f2" d="M561.5 224H573v141h-11.5Z"/>
+    <path class="leaf-outline" d="M561.5 20 L584 67 L609 52 L596 123 L605 126 L629 95 L638 115 L674 107 L664 148 L678 157 L608 209 L611 233 L573 224 L573 365 L550 365 L550 224 L512 233 L515 209 L445 157 L459 148 L449 107 L485 115 L494 95 L518 126 L527 123 L514 52 L539 67 Z"/>
+  </g>
+
+  <g><g id="rigging" fill="#d61f2c" stroke="#d61f2c">
+    <g id="anchors" class="rigging-fixed" stroke-width="2"><path d="M978 177v104M1107 177v104"/><path d="M975 281h7v9h-7zM1104 281h7v9h-7z"/></g>
+    <g id="cables" class="cable-live" fill="none" stroke-width="2"><path d="M978 177v198M1107 177v198"/></g>
+    <g id="stage" class="stage-solid" stroke-width="2"><path fill="none" d="M970 290h145v23H970zM977 290v23M1023 290v23M1062 290v23M1108 290v23"/><path d="M970 302h145v12H970z"/><path d="M976 314h133v4H976z"/></g>
+  </g></g>
+
+  <g clip-path="url(#logo-clip)" pointer-events="none"><rect class="scan" x="0" y="15" width="190" height="465" fill="url(#scan-gradient)"/></g>
+  <circle class="ready-dot" cx="1116" cy="314" r="6" fill="#e62229"/>
+</svg>

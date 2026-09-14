@@ -44,7 +44,9 @@
             >
                 <img
                     class="nea-global-header__logo"
-                    src="https://catalog.nationalexterioraccess.com/Assets/National_logo.jpg"
+                    id="nea-header-logo"
+                    src="/Assets/nea-logo-animated.svg"
+                    data-static-src="/Assets/nea-logo-static.svg"
                     alt="National Exterior Access"
                 >
             </a>
@@ -198,6 +200,25 @@
         document.querySelector(".nea-global-header");
 
     if (!header) return;
+
+    const logo = header.querySelector("#nea-header-logo");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const animatedLogoSrc = logo?.getAttribute("src") || "/Assets/nea-logo-animated.svg";
+    const staticLogoSrc = logo?.dataset.staticSrc || "/Assets/nea-logo-static.svg";
+
+    if (logo) {
+        logo.addEventListener("error", function () {
+            logo.src = staticLogoSrc;
+        }, { once: true });
+
+        if (prefersReducedMotion.matches) {
+            logo.src = staticLogoSrc;
+        } else {
+            window.setInterval(function () {
+                logo.src = animatedLogoSrc + "?cycle=" + Date.now();
+            }, 20000);
+        }
+    }
 
     /* ========================================
     ACTIVE NAVIGATION

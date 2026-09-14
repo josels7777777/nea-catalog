@@ -695,6 +695,12 @@
               <div class="nea-card-footer"><span class="nea-card-code">T-04</span><span class="nea-card-action">Details →</span></div>
             </article>
           </div>
+
+          <nav class="nea-pagination" aria-label="Catalog pagination" hidden>
+            <button class="nea-pagination-button" type="button" data-page-action="previous" aria-label="Previous page">Previous</button>
+            <div class="nea-pagination-pages" aria-live="polite"></div>
+            <button class="nea-pagination-button" type="button" data-page-action="next" aria-label="Next page">Next</button>
+          </nav>
         </div>
       </div>
     </div>

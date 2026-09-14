@@ -92,6 +92,12 @@ const filterSubgroups = document.querySelectorAll('.nea-filter-subgroups');
 const filterSubgroupButtons = document.querySelectorAll('.nea-filter-subgroup');
 const filterLabels = document.querySelectorAll('.nea-filter-chip');
 const catalogCards = document.querySelectorAll('.nea-card');
+const pagination = document.querySelector('.nea-pagination');
+const paginationPages = document.querySelector('.nea-pagination-pages');
+const paginationPrevious = document.querySelector('[data-page-action="previous"]');
+const paginationNext = document.querySelector('[data-page-action="next"]');
+const cardsPerPage = 12;
+let currentCatalogPage = 1;
 
 function restoreFilterScrollPosition(scrollX, scrollY) {
     requestAnimationFrame(() => {
@@ -108,7 +114,63 @@ filterLabels.forEach(label => {
 
 function clearSubgroupFilter() {
     filterSubgroupButtons.forEach(button => button.classList.remove('is-active'));
-    catalogCards.forEach(card => card.removeAttribute('hidden'));
+    currentCatalogPage = 1;
+}
+
+function getActiveCatalogCards() {
+    const activeInput = document.querySelector('.nea-filter-input:checked');
+    const activeSubgroup = document.querySelector('.nea-filter-subgroup.is-active')?.dataset.filterSubgroup;
+    const categoryClass = activeInput?.id === 'nea-filter-rentals'
+        ? 'nea-rentals'
+        : activeInput?.id === 'nea-filter-permanent'
+            ? 'nea-permanent'
+            : activeInput?.id === 'nea-filter-inspections'
+                ? 'nea-inspections'
+                : activeInput?.id === 'nea-filter-training'
+                    ? 'nea-training'
+                    : null;
+
+    return Array.from(catalogCards).filter(card => {
+        const matchesCategory = !categoryClass || card.classList.contains(categoryClass);
+        const cardSubgroup = card.querySelector('.nea-card-subgroup')?.textContent.trim();
+        const matchesSubgroup = !activeSubgroup || cardSubgroup === activeSubgroup;
+        return matchesCategory && matchesSubgroup;
+    });
+}
+
+function renderCatalogPage() {
+    const activeCards = getActiveCatalogCards();
+    const totalPages = Math.max(1, Math.ceil(activeCards.length / cardsPerPage));
+    currentCatalogPage = Math.min(currentCatalogPage, totalPages);
+    const firstCardIndex = (currentCatalogPage - 1) * cardsPerPage;
+    const visibleCards = new Set(activeCards.slice(firstCardIndex, firstCardIndex + cardsPerPage));
+
+    catalogCards.forEach(card => card.toggleAttribute('hidden', !visibleCards.has(card)));
+
+    if (!pagination || !paginationPages) return;
+
+    pagination.hidden = activeCards.length <= cardsPerPage;
+    paginationPages.innerHTML = '';
+
+    if (pagination.hidden) return;
+
+    for (let page = 1; page <= totalPages; page += 1) {
+        const pageButton = document.createElement('button');
+        pageButton.type = 'button';
+        pageButton.className = 'nea-pagination-page';
+        pageButton.textContent = String(page);
+        pageButton.setAttribute('aria-label', `Go to page ${page}`);
+        pageButton.setAttribute('aria-current', page === currentCatalogPage ? 'page' : 'false');
+        pageButton.classList.toggle('is-active', page === currentCatalogPage);
+        pageButton.addEventListener('click', () => {
+            currentCatalogPage = page;
+            renderCatalogPage();
+        });
+        paginationPages.appendChild(pageButton);
+    }
+
+    paginationPrevious.disabled = currentCatalogPage === 1;
+    paginationNext.disabled = currentCatalogPage === totalPages;
 }
 
 function updateSubgroupPanel(filterId) {
@@ -135,6 +197,7 @@ filterInputs.forEach(input => {
     input.addEventListener('change', function () {
         clearSubgroupFilter();
         updateSubgroupPanel(this.id);
+        renderCatalogPage();
 
         if (this.id !== 'nea-filter-rentals' && this.id !== 'nea-filter-permanent') {
             setFilterPanelExpanded(false);
@@ -159,12 +222,30 @@ filterSubgroupButtons.forEach(button => {
             const cardSubgroup = card.querySelector('.nea-card-subgroup')?.textContent.trim();
             card.toggleAttribute('hidden', cardSubgroup !== subgroup);
         });
+        currentCatalogPage = 1;
+        renderCatalogPage();
         setFilterPanelExpanded(false);
         restoreFilterScrollPosition(scrollX, scrollY);
     });
 });
 
 updateSubgroupPanel(document.querySelector('.nea-filter-input:checked')?.id || 'nea-filter-all');
+renderCatalogPage();
+
+paginationPrevious?.addEventListener('click', () => {
+    if (currentCatalogPage > 1) {
+        currentCatalogPage -= 1;
+        renderCatalogPage();
+    }
+});
+
+paginationNext?.addEventListener('click', () => {
+    const totalPages = Math.ceil(getActiveCatalogCards().length / cardsPerPage);
+    if (currentCatalogPage < totalPages) {
+        currentCatalogPage += 1;
+        renderCatalogPage();
+    }
+});
 
 function setFilterPanelExpanded(isExpanded) {
     if (!filterPanel || !filterToggle) return;
