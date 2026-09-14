@@ -980,13 +980,17 @@ body {
 }
 
 @media (min-width: 721px) and (max-width: 1050px) {
+    .nea-catalog-section {
+        padding: 44px 30px;
+    }
+
     .nea-catalog-layout {
-        gap: 0px;
+        gap: 30px;
     }
 
     .nea-catalog-header {
-        padding-bottom: 18px;
-        margin-bottom: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 35px;
     }
 
     .nea-header-slider {
