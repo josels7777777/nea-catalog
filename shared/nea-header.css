@@ -64,11 +64,11 @@ body {
     justify-content: center;
     gap: 3px;
 
-    padding: 7px 20px;
+    padding: 10px 20px;
 
     text-align: center;
 
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 1.25;
 
@@ -127,7 +127,7 @@ body {
     margin: 0 auto;
 
     padding:
-        0 clamp(32px, 5vw, 80px);
+        20px clamp(32px, 5vw, 80px);
 
     display: flex;
     align-items: center;

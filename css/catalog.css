@@ -171,11 +171,11 @@ body {
     .nea-catalog-header {
         margin-left: 0px;
         margin-right: 0px;
-        margin-bottom: 15px;
+        margin-bottom: 40px;
         padding-left: 0px;
         padding-right: 0px;
         gap: 0px;
-        padding-bottom: 40px;
+        padding-bottom: 35px;
     }
 }
 
@@ -330,20 +330,22 @@ body {
 }
 
 .nea-catalog-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 24px;
-    align-items: start;
 }
 
 .nea-filter-panel {
-    position: sticky;
-    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: static;
     padding: 22px;
     border: 1px solid var(--nea-border);
+    border-top: 3px solid var(--nea-red-main);
     border-radius: 22px;
     background: var(--nea-white);
-    box-shadow: var(--nea-shadow);
+    box-shadow: 0 16px 34px rgba(12, 26, 41, 0.13);
     padding-bottom: 15px;
 }
 
@@ -353,7 +355,8 @@ body {
 }
 
 .nea-filter-title {
-    margin: 10px 5px 15px;
+    flex: 0 0 auto;
+    margin: 0;
     color: var(--nea-blue-dark);
     font-size: 18px;
     line-height: 1.25;
@@ -366,7 +369,13 @@ body {
 }
 
 .nea-filter-note {
-    margin: 0 0 18px;
+    flex: 0 1 260px;
+    margin: 0;
+    .nea-filter-panel {
+        position: relative;
+        z-index: 20;
+        overflow: visible;
+    }
     color: rgba(12, 26, 41, 0.64);
     font-size: 13px;
     line-height: 1.5;
@@ -439,16 +448,20 @@ body {
 
 .nea-filter-list {
     display: flex;
-    flex-direction: column;
+    flex: 1 1 auto;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .nea-filter-chip {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+        overflow: visible;
     gap: 12px;
-    width: 100%;
+    width: auto;
+    flex: 1 1 140px;
     min-height: 44px;
     padding: 12px 14px;
     border: 1px solid var(--nea-border);
@@ -464,6 +477,102 @@ body {
 .nea-filter-chip:hover {
     border-color: rgba(138, 128, 128, 0.35);
     transform: translateY(-1px);
+}
+
+.nea-filter-chip[data-filter-parent] {
+    position: relative;
+}
+
+.nea-filter-subgroups {
+    display: none;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 2px;
+    padding: 12px 0 0 14px;
+    border-top: 1px solid rgba(12, 26, 41, 0.12);
+}
+
+.nea-filter-subgroups.is-visible {
+    display: flex;
+}
+
+.nea-filter-subgroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 190px;
+    gap: 10px;
+    min-height: 38px;
+    padding: 9px 11px;
+    border: 1px solid rgba(12, 26, 41, 0.14);
+    border-radius: 10px;
+    background: rgba(245, 247, 248, 0.72);
+    color: rgba(12, 26, 41, 0.78);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.25;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.nea-filter-subgroup:hover,
+.nea-filter-subgroup.is-active {
+    border-color: rgba(146, 25, 25, 0.42);
+    background: rgba(146, 25, 25, 0.08);
+    color: var(--nea-red-dark);
+}
+
+.nea-filter-subgroup .nea-filter-count {
+    flex-shrink: 0;
+    min-width: 24px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 11px;
+}
+
+.nea-filter-panel.has-active-subgroups {
+    align-items: flex-start;
+}
+
+@media (min-width: 1051px) {
+    .nea-filter-list {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+    }
+
+    .nea-filter-list > label[for="nea-filter-all"] {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .nea-filter-list > label[for="nea-filter-rentals"] {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .nea-filter-list > label[for="nea-filter-permanent"] {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .nea-filter-list > label[for="nea-filter-inspections"] {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    .nea-filter-list > label[for="nea-filter-training"] {
+        grid-column: 5;
+        grid-row: 1;
+    }
+
+    .nea-filter-list > .nea-filter-subgroups {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+    }
 }
 
 .nea-filter-count {
@@ -603,6 +712,10 @@ body {
     background: var(--nea-white);
 }
 
+.nea-card[hidden] {
+    display: none;
+}
+
 .nea-card[data-bg] {
     background: linear-gradient(to bottom,
             rgba(255, 255, 255, 0.70) 0%,
@@ -673,7 +786,27 @@ body {
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
+}
+
+.nea-card-subgroup {
+    display: inline-flex;
+    flex: 1 1 auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 6px 9px;
+    border: 1px solid rgba(12, 26, 41, 0.22);
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(19, 31, 57, 0.09);
+    color: var(--nea-blue-dark);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.25;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .nea-card.nea-permanent .nea-card-badge {
@@ -721,14 +854,6 @@ body {
     gap: 12px;
     margin-top: auto;
     padding-top: 14px;
-}
-
-.nea-card-type {
-    color: rgba(12, 26, 41, 0.55);
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .nea-card-action {
@@ -805,6 +930,39 @@ body {
 
     .nea-filter-panel {
         position: static;
+    }
+
+    .nea-filter-panel {
+        position: relative;
+        z-index: 20;
+        overflow: visible;
+    }
+
+    .nea-filter-subgroups {
+        position: fixed;
+        top: auto;
+        right: auto;
+        left: auto;
+        z-index: 30;
+        display: none;
+        width: auto;
+        max-width: calc(100vw - 24px);
+        max-height: min(70vh, 520px);
+        overflow-y: auto;
+        margin: 0;
+        padding: 14px;
+        border: 1px solid var(--nea-border);
+        border-radius: 16px;
+        background: var(--nea-white);
+        box-shadow: 0 18px 36px rgba(12, 26, 41, 0.18);
+    }
+
+    .nea-filter-subgroups.is-visible {
+        display: flex;
+    }
+
+    .nea-filter-subgroup {
+        flex: 1 1 190px;
     }
 
     .nea-filter-list {
@@ -953,10 +1111,11 @@ body {
     }
 
     .nea-filter-panel {
+        display: block;
         padding: 16px;
         padding-bottom: 66px;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .nea-filter-toggle {
@@ -1033,6 +1192,25 @@ body {
         overflow: visible;
     }
 
+    .nea-filter-panel.has-active-subgroups .nea-filter-list {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .nea-filter-panel.has-active-subgroups::after {
+        display: none;
+    }
+
+    .nea-filter-subgroups {
+        flex-direction: column;
+        padding-left: 12px;
+    }
+
+    .nea-filter-subgroup {
+        width: 100%;
+        flex-basis: auto;
+    }
+
     .nea-filter-panel.is-expanded .nea-filter-note {
         display: block;
     }
@@ -1051,6 +1229,151 @@ body {
 
     .nea-card {
         min-height: auto;
+    }
+}
+
+.nea-filter-launcher,
+.nea-filter-backdrop {
+    display: none;
+}
+
+@media (max-width: 1050px) {
+    .nea-filter-launcher {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 52px;
+        padding: 14px 16px;
+        border: 1px solid var(--nea-border);
+        border-top: 3px solid var(--nea-red-main);
+        border-radius: 16px;
+        background: var(--nea-white);
+        box-shadow: 0 12px 28px rgba(12, 26, 41, 0.1);
+        color: var(--nea-blue-dark);
+        font-size: 15px;
+        font-weight: 900;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .nea-filter-launcher::after {
+        content: "+";
+        color: var(--nea-red-main);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    .nea-filter-launcher-count {
+        margin-left: auto;
+        margin-right: 16px;
+        color: rgba(12, 26, 41, 0.55);
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    .nea-filter-backdrop:not([hidden]) {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 6000;
+        background: rgba(2, 2, 2, 0.48);
+        backdrop-filter: blur(3px);
+    }
+
+    .nea-filter-panel {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 6001;
+        flex-direction: column;
+        align-items: stretch;
+        width: min(calc(100vw - 40px), 560px);
+        max-height: min(calc(100vh - 32px), 760px);
+        margin: 0;
+        padding: 20px;
+        overflow-y: auto;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        box-shadow: 0 24px 60px rgba(2, 2, 2, 0.26);
+    }
+
+    .nea-filter-panel.is-modal-open {
+        display: flex;
+    }
+
+    .nea-filter-panel::after {
+        display: none;
+    }
+
+    .nea-filter-toggle {
+        display: flex;
+        position: static;
+        width: 100%;
+        min-height: 44px;
+        margin: 0;
+        padding: 11px 14px;
+        transform: none;
+        border-radius: 12px;
+        background: var(--nea-light);
+        color: var(--nea-navy);
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .nea-filter-toggle::after {
+        content: "\\00d7";
+        margin-left: auto;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .nea-filter-list,
+    .nea-filter-panel.has-active-subgroups .nea-filter-list {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        gap: 10px;
+        width: 100%;
+        max-height: none;
+        margin-top: 0;
+        overflow: visible;
+    }
+
+    .nea-filter-chip {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .nea-filter-subgroups,
+    .nea-filter-subgroups.is-visible {
+        display: none;
+        position: static;
+        flex: 0 0 auto;
+        width: 100%;
+        max-height: none;
+        margin: -2px 0 2px;
+        padding: 10px 0 0 12px;
+        overflow: visible;
+        border-top: 1px solid rgba(12, 26, 41, 0.12);
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 2px solid rgba(146, 25, 25, 0.28);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .nea-filter-subgroups.is-visible {
+        display: flex;
+    }
+
+    .nea-filter-subgroup {
+        width: 100%;
+        flex: 0 0 auto;
     }
 }
 

@@ -72,29 +72,136 @@
       <input class="nea-filter-input" type="radio" name="nea-catalog-filter" id="nea-filter-training">
 
       <div class="nea-catalog-layout">
-        <aside class="nea-filter-panel">
-          <h3 class="nea-filter-title">Filter catalog</h3>
+        <button class="nea-filter-launcher" type="button" id="nea-filter-launcher" aria-expanded="false" aria-controls="nea-filter-panel">
+          <span>Filter catalog</span>
+          <span class="nea-filter-launcher-count">65 products</span>
+        </button>
+
+        <div class="nea-filter-backdrop" id="nea-filter-backdrop" hidden></div>
+
+        <aside class="nea-filter-panel" id="nea-filter-panel" aria-hidden="true">
+<!--           <h3 class="nea-filter-title">Filter catalog</h3>
           <p class="nea-filter-note">
             Select a category to browse the catalog by solution type.
-          </p>
+          </p> -->
 
-          <button class="nea-filter-toggle" type="button" id="nea-filter-toggle" aria-expanded="false" aria-controls="nea-filter-list" aria-label="Show filters"></button>
+          <button class="nea-filter-toggle" type="button" id="nea-filter-toggle" aria-expanded="false" aria-controls="nea-filter-list" aria-label="Close filters">
+            <span>Close filters</span>
+          </button>
 
           <div class="nea-filter-list" id="nea-filter-list">
             <label class="nea-filter-chip" for="nea-filter-all">
               All
-              <span class="nea-filter-count">70+</span>
+              <span class="nea-filter-count">65</span>
             </label>
 
-            <label class="nea-filter-chip" for="nea-filter-rentals">
+            <label class="nea-filter-chip" for="nea-filter-rentals" data-filter-parent="rentals" aria-expanded="false">
               Rentals
-              <span class="nea-filter-count">31</span>
-            </label>
-
-            <label class="nea-filter-chip" for="nea-filter-permanent">
-              Permanent Systems
               <span class="nea-filter-count">28</span>
             </label>
+
+            <div class="nea-filter-subgroups" id="nea-filter-subgroups-rentals" data-filter-subgroups="rentals" aria-label="Rental subgroups">
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Suspended Access Platforms">
+                Suspended Access Platforms
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Specialty Suspended Platforms">
+                Specialty Suspended Platforms
+                <span class="nea-filter-count">3</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Stirrups &amp; Platform Components">
+                Stirrups &amp; Platform Components
+                <span class="nea-filter-count">5</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Parapet &amp; Outrigger Rigging">
+                Parapet &amp; Outrigger Rigging
+                <span class="nea-filter-count">4</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Portable Rigging Hardware">
+                Portable Rigging Hardware
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Ropes &amp; Power Accessories">
+                Ropes &amp; Power Accessories
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Specialized Rigging Hardware">
+                Specialized Rigging Hardware
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Material Hoisting Systems">
+                Material Hoisting Systems
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Hoists &amp; Winches">
+                Hoists &amp; Winches
+                <span class="nea-filter-count">4</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Rental Support Services">
+                Rental Support Services
+                <span class="nea-filter-count">4</span>
+              </button>
+            </div>
+
+            <label class="nea-filter-chip" for="nea-filter-permanent" data-filter-parent="permanent" aria-expanded="false">
+              Permanent Systems
+              <span class="nea-filter-count">26</span>
+            </label>
+
+            <div class="nea-filter-subgroups" id="nea-filter-subgroups-permanent" data-filter-subgroups="permanent" aria-label="Permanent system subgroups">
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Horizontal Lifeline Systems">
+                Horizontal Lifeline Systems
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Roof &amp; Wall Anchor Systems">
+                Roof &amp; Wall Anchor Systems
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Anchor Installation Systems">
+                Anchor Installation Systems
+                <span class="nea-filter-count">5</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Passive Fall Protection &amp; Roof Access">
+                Passive Fall Protection &amp; Roof Access
+                <span class="nea-filter-count">3</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Roof Track Systems">
+                Roof Track Systems
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Davit Systems">
+                Davit Systems
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Davit Components">
+                Davit Components
+                <span class="nea-filter-count">3</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Monorail Systems">
+                Monorail Systems
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Permanent Rigging Systems">
+                Permanent Rigging Systems
+                <span class="nea-filter-count">3</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Permanent Access Structures">
+                Permanent Access Structures
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Custom Access Systems">
+                Custom Access Systems
+                <span class="nea-filter-count">2</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Building Maintenance Units">
+                Building Maintenance Units
+                <span class="nea-filter-count">1</span>
+              </button>
+              <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Specialized Vertical Access Systems">
+                Specialized Vertical Access Systems
+                <span class="nea-filter-count">1</span>
+              </button>
+            </div>
 
             <label class="nea-filter-chip" for="nea-filter-inspections">
               Inspections
@@ -130,461 +237,461 @@
           <div class="nea-catalog-grid">
             <!-- Rentals -->
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Standard_Straight_Swing_Stage.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-01</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Suspended Access Platforms</span></div>
               <h3 class="nea-card-title">Standard Straight Swing Stage</h3>
               <p class="nea-card-group">Swing Stages & Modular Platforms</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Equipment rental</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-01</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Sloped Stages.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-02</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Suspended Access Platforms</span></div>
               <h3 class="nea-card-title">Sloped Stages</h3>
               <p class="nea-card-group">Swing Stages & Modular Platforms</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Equipment rental</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-02</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Multi-Point & Large-Scale Dance Floor Platforms.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-03</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Specialty Suspended Platforms</span></div>
               <h3 class="nea-card-title">Multi-Point & Large-Scale Dance Floor Platforms</h3>
               <p class="nea-card-group">Swing Stages & Modular Platforms</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-03</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Custom Configurations.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-04</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Specialty Suspended Platforms</span></div>
               <h3 class="nea-card-title">Custom Configurations</h3>
               <p class="nea-card-group">Swing Stages & Modular Platforms</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Custom setup</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-04</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Specialty Shapes.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-05</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Specialty Suspended Platforms</span></div>
               <h3 class="nea-card-title">Specialty Shapes</h3>
               <p class="nea-card-group">Swing Stages & Modular Platforms</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-05</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Stirrups.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-06</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Stirrups &amp; Platform Components</span></div>
               <h3 class="nea-card-title">Stirrups</h3>
               <p class="nea-card-group">Swing Stage Components</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-06</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Standard End Stirrups.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-07</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Stirrups &amp; Platform Components</span></div>
               <h3 class="nea-card-title">Standard End Stirrups</h3>
               <p class="nea-card-group">Swing Stage Components</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-07</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Walk-Through Stirrups.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-08</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Stirrups &amp; Platform Components</span></div>
               <h3 class="nea-card-title">Walk-Through Stirrups</h3>
               <p class="nea-card-group">Swing Stage Components</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-08</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/C Stirrups.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-09</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Stirrups &amp; Platform Components</span></div>
               <h3 class="nea-card-title">C Stirrups</h3>
               <p class="nea-card-group">Swing Stage Components</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-09</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Pass-By Stirrups.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-10</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Stirrups &amp; Platform Components</span></div>
               <h3 class="nea-card-title">Pass-By Stirrups</h3>
               <p class="nea-card-group">Swing Stage Components</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-10</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Parapet Clamps.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-11</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Parapet &amp; Outrigger Rigging</span></div>
               <h3 class="nea-card-title">Parapet Clamps</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-11</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Parapet Hooks.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-12</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Parapet &amp; Outrigger Rigging</span></div>
               <h3 class="nea-card-title">Parapet Hooks</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-12</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Portable Outrigger Beams.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-13</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Parapet &amp; Outrigger Rigging</span></div>
               <h3 class="nea-card-title">Portable Outrigger Beams</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-13</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Outrigger Assemblies.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-14</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Parapet &amp; Outrigger Rigging</span></div>
               <h3 class="nea-card-title">Outrigger Assemblies</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-14</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Davit Arms.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-15</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Portable Rigging Hardware</span></div>
               <h3 class="nea-card-title">Davit Arms</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-15</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Rigging Accessories.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-16</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Portable Rigging Hardware</span></div>
               <h3 class="nea-card-title">Rigging Accessories</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Accessories</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-16</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Wire Ropes.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-17</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Ropes &amp; Power Accessories</span></div>
               <h3 class="nea-card-title">Wire Ropes</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Accessory</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-17</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Power Cords.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-18</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Ropes &amp; Power Accessories</span></div>
               <h3 class="nea-card-title">Power Cords</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Accessory</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-18</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Specialized Rigging Hardware.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-19</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Specialized Rigging Hardware</span></div>
               <h3 class="nea-card-title">Specialized Rigging Hardware</h3>
               <p class="nea-card-group">Advanced Portable Rigging Hardware</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-19</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Engineered Material Hoisting Setups.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-20</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Material Hoisting Systems</span></div>
               <h3 class="nea-card-title">Engineered Material Hoisting Setups</h3>
               <p class="nea-card-group">Material Hoisting Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Hoisting system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-20</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Manual Winches.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-21</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Hoists &amp; Winches</span></div>
               <h3 class="nea-card-title">Manual Winches</h3>
               <p class="nea-card-group">Hoists & Winches</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Hoist equipment</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-21</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Electrical Powered Hoists.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-22</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Hoists &amp; Winches</span></div>
               <h3 class="nea-card-title">Electrical Powered Hoists</h3>
               <p class="nea-card-group">Hoists & Winches</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Hoist equipment</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-22</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Tractel Tirak 501.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-23</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Hoists &amp; Winches</span></div>
               <h3 class="nea-card-title">Tractel Tirak 501</h3>
               <p class="nea-card-group">Hoists & Winches</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Powered hoist</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-23</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Power Climber PC1.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-24</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Hoists &amp; Winches</span></div>
               <h3 class="nea-card-title">Power Climber PC1</h3>
               <p class="nea-card-group">Hoists & Winches</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Powered hoist</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-24</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Delivery.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-25</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Rental Support Services</span></div>
               <h3 class="nea-card-title">Delivery</h3>
               <p class="nea-card-group">Rental Support</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-25</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Assembly.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-26</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Rental Support Services</span></div>
               <h3 class="nea-card-title">Assembly</h3>
               <p class="nea-card-group">Rental Support</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-26</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Rigging.webp')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-27</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Rental Support Services</span></div>
               <h3 class="nea-card-title">Rigging</h3>
               <p class="nea-card-group">Rental Support</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-27</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-rentals" data-bg style="--nea-card-bg: url('/Assets/Pics/Dismantling.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-code">R-28</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Rentals</span><span class="nea-card-subgroup">Rental Support Services</span></div>
               <h3 class="nea-card-title">Dismantling</h3>
               <p class="nea-card-group">Rental Support</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Support service</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">R-28</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <!-- Permanent Systems -->
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Horizontal Lifelines.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-01</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Horizontal Lifeline Systems</span></div>
               <h3 class="nea-card-title">Horizontal Lifelines</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Fall protection</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-01</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Roof Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-02</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Roof &amp; Wall Anchor Systems</span></div>
               <h3 class="nea-card-title">Roof Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-02</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Wall Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-03</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Roof &amp; Wall Anchor Systems</span></div>
               <h3 class="nea-card-title">Wall Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-03</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Cast-In-Place Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-04</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Anchor Installation Systems</span></div>
               <h3 class="nea-card-title">Cast-In-Place Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-04</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Thru-Bolt Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-05</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Anchor Installation Systems</span></div>
               <h3 class="nea-card-title">Thru-Bolt Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-05</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Weld-On Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-06</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Anchor Installation Systems</span></div>
               <h3 class="nea-card-title">Weld-On Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-06</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Adhesive Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-07</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Anchor Installation Systems</span></div>
               <h3 class="nea-card-title">Adhesive Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-07</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Wrap-Around Anchors.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-08</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Anchor Installation Systems</span></div>
               <h3 class="nea-card-title">Wrap-Around Anchors</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Anchor system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-08</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Non-Penetrating Guardrail.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-09</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Passive Fall Protection &amp; Roof Access</span></div>
               <h3 class="nea-card-title">Non-Penetrating Guardrail</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Guardrail system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-09</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Roof Walkways.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-10</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Passive Fall Protection &amp; Roof Access</span></div>
               <h3 class="nea-card-title">Roof Walkways</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Access system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-10</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Catwalks.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-11</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Passive Fall Protection &amp; Roof Access</span></div>
               <h3 class="nea-card-title">Catwalks</h3>
               <p class="nea-card-group">Roof Anchors & Fall Protection</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Access system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-11</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Roof Track Systems.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-12</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Roof Track Systems</span></div>
               <h3 class="nea-card-title">Roof Track Systems</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-12</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Rolling Davits.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-13</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Davit Systems</span></div>
               <h3 class="nea-card-title">Rolling Davits</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Davit system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-13</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Stationary Davit Systems.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-14</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Davit Systems</span></div>
               <h3 class="nea-card-title">Stationary Davit Systems</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Davit system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-14</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Davit Arms.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-15</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Davit Components</span></div>
               <h3 class="nea-card-title">Davit Arms</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-15</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Davit Bases.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-16</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Davit Components</span></div>
               <h3 class="nea-card-title">Davit Bases</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-16</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Davit Sockets.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-17</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Davit Components</span></div>
               <h3 class="nea-card-title">Davit Sockets</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Davit component</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-17</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Monorail Systems.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-18</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Monorail Systems</span></div>
               <h3 class="nea-card-title">Monorail Systems</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-18</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Permanent Outrigger Beams.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-19</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Permanent Rigging Systems</span></div>
               <h3 class="nea-card-title">Permanent Outrigger Beams</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-19</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Permanent Parapet Clamps.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-20</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Permanent Rigging Systems</span></div>
               <h3 class="nea-card-title">Permanent Parapet Clamps</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigging system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-20</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Specialized Permanent Rigging Hardware.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-21</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Permanent Rigging Systems</span></div>
               <h3 class="nea-card-title">Specialized Permanent Rigging Hardware</h3>
               <p class="nea-card-group">Building Envelope Access Systems</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty hardware</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-21</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Rolling Ladders.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-22</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Permanent Access Structures</span></div>
               <h3 class="nea-card-title">Rolling Ladders</h3>
               <p class="nea-card-group">Custom Platforms & Structures</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Custom structure</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-22</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Custom Rigging.jpg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-23</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Custom Access Systems</span></div>
               <h3 class="nea-card-title">Custom Rigging</h3>
               <p class="nea-card-group">Custom Platforms & Structures</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Custom system</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-23</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Specialty Access Systems.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-24</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Custom Access Systems</span></div>
               <h3 class="nea-card-title">Specialty Access Systems</h3>
               <p class="nea-card-group">Custom Platforms & Structures</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-24</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Specialty Access Systems.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-25</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Building Maintenance Units</span></div>
               <h3 class="nea-card-title">Building Maintenance Units (BMU)</h3>
               <p class="nea-card-group">Custom Platforms & Structures</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Facade access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-25</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-permanent" data-bg style="--nea-card-bg: url('/Assets/Pics/Funicular Lifts.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-code">P-26</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Permanent</span><span class="nea-card-subgroup">Specialized Vertical Access Systems</span></div>
               <h3 class="nea-card-title">Funicular Lifts</h3>
               <p class="nea-card-group">Custom Platforms & Structures</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Specialty access</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">P-26</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <!-- Inspections -->
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Annual Visual Inspections.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-01</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Annual Visual Inspections</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-01</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Anchor Inspections.webp')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-02</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Anchor Inspections</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-02</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Anchor Inspections.webp')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-03</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Suspension System Inspections</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Inspection</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-03</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Anchor Load Testing.jpeg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-04</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Anchor Load Testing</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Load testing</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-04</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/5-Year Load Testing.jpeg')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-05</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">5-Year Load Testing</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Load testing</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-05</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Engineered  Stamped Reports.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-06</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Engineered / Stamped Reports</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Documentation</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-06</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-inspections" data-bg style="--nea-card-bg: url('/Assets/Pics/Professional Engineering Certification.png')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span><span class="nea-card-code">I-07</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Inspections</span></div>
               <h3 class="nea-card-title">Professional Engineering Certification</h3>
               <p class="nea-card-group">Inspection & Compliance Services</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Certification</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">I-07</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <!-- Training -->
             <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('/Assets/Pics/Basic Level 1 Fall Protection Orientation.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-01</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Training</span></div>
               <h3 class="nea-card-title">Basic Level 1 Fall Protection Orientation</h3>
               <p class="nea-card-group">Training Courses</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Safety training</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">T-01</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('/Assets/Pics/Swing Stage Operator Occupant Orientation.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-02</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Training</span></div>
               <h3 class="nea-card-title">Swing Stage Operator / Occupant Orientation</h3>
               <p class="nea-card-group">Training Courses</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Operator training</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">T-02</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('/Assets/Pics/Basic Swing Stage System Rigger Competency Course.avif')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-03</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Training</span></div>
               <h3 class="nea-card-title">Basic Swing Stage System Rigger Competency Course</h3>
               <p class="nea-card-group">Training Courses</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Rigger training</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">T-03</span><span class="nea-card-action">Details →</span></div>
             </article>
 
             <article class="nea-card nea-training" data-bg style="--nea-card-bg: url('/Assets/Pics/Refresher Training.webp')">
-              <div class="nea-card-meta"><span class="nea-card-badge">Training</span><span class="nea-card-code">T-04</span></div>
+              <div class="nea-card-meta"><span class="nea-card-badge">Training</span></div>
               <h3 class="nea-card-title">Refresher Training</h3>
               <p class="nea-card-group">Training Courses</p>
-              <div class="nea-card-footer"><span class="nea-card-type">Training update</span><span class="nea-card-action">Details →</span></div>
+              <div class="nea-card-footer"><span class="nea-card-code">T-04</span><span class="nea-card-action">Details →</span></div>
             </article>
           </div>
         </div>

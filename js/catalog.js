@@ -85,24 +85,136 @@
 // ====== MOBILE FILTER TOGGLE ======
 const filterPanel = document.querySelector('.nea-filter-panel');
 const filterToggle = document.getElementById('nea-filter-toggle');
+const filterLauncher = document.getElementById('nea-filter-launcher');
+const filterBackdrop = document.getElementById('nea-filter-backdrop');
+const filterInputs = document.querySelectorAll('.nea-filter-input');
+const filterSubgroups = document.querySelectorAll('.nea-filter-subgroups');
+const filterSubgroupButtons = document.querySelectorAll('.nea-filter-subgroup');
+const filterLabels = document.querySelectorAll('.nea-filter-chip');
+const catalogCards = document.querySelectorAll('.nea-card');
+
+function restoreFilterScrollPosition(scrollX, scrollY) {
+    requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+        requestAnimationFrame(() => window.scrollTo(scrollX, scrollY));
+    });
+}
+
+filterLabels.forEach(label => {
+    label.addEventListener('click', function () {
+        restoreFilterScrollPosition(window.scrollX, window.scrollY);
+    });
+});
+
+function clearSubgroupFilter() {
+    filterSubgroupButtons.forEach(button => button.classList.remove('is-active'));
+    catalogCards.forEach(card => card.removeAttribute('hidden'));
+}
+
+function updateSubgroupPanel(filterId) {
+    const activeParent = filterId === 'nea-filter-rentals'
+        ? 'rentals'
+        : filterId === 'nea-filter-permanent'
+            ? 'permanent'
+            : null;
+
+    filterPanel?.classList.toggle('has-active-subgroups', Boolean(activeParent));
+
+    filterSubgroups.forEach(group => {
+        const isVisible = group.dataset.filterSubgroups === activeParent;
+        group.classList.toggle('is-visible', isVisible);
+    });
+
+    document.querySelectorAll('[data-filter-parent]').forEach(parent => {
+        const isActive = parent.dataset.filterParent === activeParent;
+        parent.setAttribute('aria-expanded', String(isActive));
+    });
+}
+
+filterInputs.forEach(input => {
+    input.addEventListener('change', function () {
+        clearSubgroupFilter();
+        updateSubgroupPanel(this.id);
+
+        if (this.id !== 'nea-filter-rentals' && this.id !== 'nea-filter-permanent') {
+            setFilterPanelExpanded(false);
+        }
+    });
+});
+
+filterSubgroupButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        const subgroup = this.dataset.filterSubgroup;
+        const parent = this.closest('.nea-filter-subgroups')?.dataset.filterSubgroups;
+        const parentInput = document.getElementById(parent === 'rentals' ? 'nea-filter-rentals' : 'nea-filter-permanent');
+
+        if (!subgroup || !parentInput) return;
+
+        parentInput.checked = true;
+        updateSubgroupPanel(parentInput.id);
+        filterSubgroupButtons.forEach(item => item.classList.toggle('is-active', item === this));
+        catalogCards.forEach(card => {
+            const cardSubgroup = card.querySelector('.nea-card-subgroup')?.textContent.trim();
+            card.toggleAttribute('hidden', cardSubgroup !== subgroup);
+        });
+        setFilterPanelExpanded(false);
+        restoreFilterScrollPosition(scrollX, scrollY);
+    });
+});
+
+updateSubgroupPanel(document.querySelector('.nea-filter-input:checked')?.id || 'nea-filter-all');
 
 function setFilterPanelExpanded(isExpanded) {
     if (!filterPanel || !filterToggle) return;
 
+    const isResponsiveFilter = window.matchMedia('(max-width: 1050px)').matches;
     filterPanel.classList.toggle('is-expanded', isExpanded);
     filterPanel.classList.toggle('is-collapsed', !isExpanded);
+    filterPanel.classList.toggle('is-modal-open', isExpanded);
+    filterPanel.setAttribute('aria-hidden', String(!isExpanded));
     filterToggle.setAttribute('aria-expanded', String(isExpanded));
-    filterToggle.setAttribute('aria-label', isExpanded ? 'Hide filters' : 'Show filters');
+    filterToggle.setAttribute('aria-label', 'Close filters');
+
+    if (filterLauncher) {
+        filterLauncher.setAttribute('aria-expanded', String(isExpanded));
+    }
+
+    if (filterBackdrop) {
+        filterBackdrop.hidden = !isExpanded;
+    }
+
+    if (isResponsiveFilter) {
+        document.body.style.overflow = isExpanded ? 'hidden' : '';
+    }
+}
+
+if (filterLauncher) {
+    filterLauncher.addEventListener('click', function () {
+        setFilterPanelExpanded(true);
+    });
 }
 
 if (filterToggle) {
     filterToggle.addEventListener('click', function () {
-        const isExpanded = filterPanel.classList.contains('is-expanded');
-        setFilterPanelExpanded(!isExpanded);
+        setFilterPanelExpanded(false);
     });
 
     setFilterPanelExpanded(false);
 }
+
+if (filterBackdrop) {
+    filterBackdrop.addEventListener('click', function () {
+        setFilterPanelExpanded(false);
+    });
+}
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && filterPanel?.classList.contains('is-modal-open')) {
+        setFilterPanelExpanded(false);
+    }
+});
 
 // ====== CATALOG CARDS MODAL ======
 const modal = document.getElementById('nea-details-modal');
@@ -124,7 +236,7 @@ detailsButtons.forEach(button => {
         const title = card.querySelector('.nea-card-title')?.textContent || 'Product';
         const code = card.querySelector('.nea-card-code')?.textContent || 'N/A';
         const group = card.querySelector('.nea-card-group')?.textContent || 'Category';
-        const type = card.querySelector('.nea-card-type')?.textContent || 'Type';
+        const type = card.querySelector('.nea-card-subgroup')?.textContent || group;
         const badge = card.querySelector('.nea-card-badge')?.textContent || 'Category';
         const cardBackground = card.style.getPropertyValue('--nea-card-bg') || '';
         const imageMatch = cardBackground.match(/url\(([^)]+)\)/);
