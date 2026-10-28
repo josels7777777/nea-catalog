@@ -11,6 +11,9 @@
     background: var(--nea-footer-navy);
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
+    box-shadow:
+        0 -6px 10px -8px rgba(19, 31, 57, 0.08),
+        0 -14px 24px -14px rgba(146, 25, 25, 0.18);
 }
 
 .nea-global-footer,
