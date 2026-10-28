@@ -91,6 +91,7 @@ const filterInputs = document.querySelectorAll('.nea-filter-input');
 const filterSubgroups = document.querySelectorAll('.nea-filter-subgroups');
 const filterSubgroupButtons = document.querySelectorAll('.nea-filter-subgroup');
 const filterLabels = document.querySelectorAll('.nea-filter-chip');
+const filterParentLabels = document.querySelectorAll('[data-filter-parent]');
 const catalogCards = document.querySelectorAll('.nea-card');
 const pagination = document.querySelector('.nea-pagination');
 const paginationPages = document.querySelector('.nea-pagination-pages');
@@ -98,6 +99,15 @@ const paginationPrevious = document.querySelector('[data-page-action="previous"]
 const paginationNext = document.querySelector('[data-page-action="next"]');
 const cardsPerPage = 12;
 let currentCatalogPage = 1;
+
+function setSubgroupDropdown(parentKey, isOpen) {
+    document.querySelectorAll('[data-filter-parent]').forEach(parent => {
+        parent.setAttribute('aria-expanded', String(isOpen && parent.dataset.filterParent === parentKey));
+    });
+    filterSubgroups.forEach(group => {
+        group.classList.toggle('is-visible', isOpen && group.dataset.filterSubgroups === parentKey);
+    });
+}
 
 function restoreFilterScrollPosition(scrollX, scrollY) {
     requestAnimationFrame(() => {
@@ -109,6 +119,26 @@ function restoreFilterScrollPosition(scrollX, scrollY) {
 filterLabels.forEach(label => {
     label.addEventListener('click', function () {
         restoreFilterScrollPosition(window.scrollX, window.scrollY);
+    });
+});
+
+filterParentLabels.forEach(parent => {
+    parent.addEventListener('click', function (event) {
+        const input = document.getElementById(this.htmlFor);
+        if (!input) return;
+
+        const isDesktopFilter = window.matchMedia('(min-width: 1051px)').matches;
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+        if (!isDesktopFilter && !input.checked) return;
+
+        event.preventDefault();
+        if (!input.checked) {
+            input.checked = true;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        setSubgroupDropdown(this.dataset.filterParent, !isOpen);
     });
 });
 
@@ -174,6 +204,7 @@ function renderCatalogPage() {
 }
 
 function updateSubgroupPanel(filterId) {
+    const isDesktopFilter = window.matchMedia('(min-width: 1051px)').matches;
     const activeParent = filterId === 'nea-filter-rentals'
         ? 'rentals'
         : filterId === 'nea-filter-permanent'
@@ -184,12 +215,13 @@ function updateSubgroupPanel(filterId) {
 
     filterSubgroups.forEach(group => {
         const isVisible = group.dataset.filterSubgroups === activeParent;
-        group.classList.toggle('is-visible', isVisible);
+        const parent = document.querySelector(`[data-filter-parent="${group.dataset.filterSubgroups}"]`);
+        const shouldOpen = isVisible && (!isDesktopFilter || parent?.getAttribute('aria-expanded') === 'true');
+        group.classList.toggle('is-visible', shouldOpen);
     });
 
     document.querySelectorAll('[data-filter-parent]').forEach(parent => {
-        const isActive = parent.dataset.filterParent === activeParent;
-        parent.setAttribute('aria-expanded', String(isActive));
+        parent.setAttribute('aria-expanded', String(parent.dataset.filterParent === activeParent));
     });
 }
 
@@ -227,6 +259,15 @@ filterSubgroupButtons.forEach(button => {
         setFilterPanelExpanded(false);
         restoreFilterScrollPosition(scrollX, scrollY);
     });
+});
+
+document.addEventListener('click', function (event) {
+    if (!window.matchMedia('(min-width: 1051px)').matches) return;
+
+    if (!event.target.closest('.nea-filter-dropdown')) {
+        document.querySelectorAll('[data-filter-parent]').forEach(parent => parent.setAttribute('aria-expanded', 'false'));
+        filterSubgroups.forEach(group => group.classList.remove('is-visible'));
+    }
 });
 
 updateSubgroupPanel(document.querySelector('.nea-filter-input:checked')?.id || 'nea-filter-all');
@@ -398,6 +439,9 @@ const summaryModal = document.getElementById('nea-summary-modal');
 const summaryCloseBtn = document.getElementById('summary-modal-close');
 const summaryCancelBtn = document.getElementById('summary-modal-cancel');
 const summaryContactBtn = document.getElementById('summary-modal-contact');
+const summaryLinkBtn = document.getElementById('summary-modal-link');
+const summaryLinkText = document.getElementById('summary-modal-link-text');
+const summaryCtaCopy = document.getElementById('summary-modal-cta-copy');
 const summaryCards = document.querySelectorAll('.nea-summary-card');
 let lastSummaryTrigger = null;
 
@@ -407,7 +451,7 @@ const summaryDescriptions = {
         description: 'High-performance swing stages and hoists for immediate project mobilization. Our rental equipment is designed for rapid deployment and maximum safety compliance.',
         details: 'Access to a wide range of swing stages, rigging components, and lifting equipment available immediately for your projects.'
     },
-    'Systems': {
+    'Permanent Systems': {
         description: 'Permanent engineered anchors and lifelines designed for maximum building safety. All systems are designed and certified by Professional Engineers.',
         details: 'Permanent anchorage solutions, lifeline systems, façade access options, and custom-engineered specialized structures.'
     },
@@ -429,16 +473,16 @@ summaryCards.forEach(card => {
 
         const title = this.querySelector('.nea-summary-number')?.textContent || 'Category';
         const fullText = this.querySelector('.nea-summary-label')?.textContent || 'Description';
+        const summaryUrl = this.dataset.summaryUrl || '#';
+
+        summaryLinkBtn?.setAttribute('href', summaryUrl);
+                summaryLinkBtn?.setAttribute('aria-label', `Explore ${title} page`);
+                if (summaryLinkText) summaryLinkText.textContent = `Explore ${title}`;
+                if (summaryCtaCopy) summaryCtaCopy.textContent = `View the complete ${title} offering and project options.`;
 
         if (summaryDescriptions[title]) {
             document.getElementById('summary-modal-title').textContent = title;
             document.getElementById('summary-modal-description').textContent = summaryDescriptions[title].description;
-
-            const detailsDiv = document.getElementById('summary-modal-details');
-            detailsDiv.innerHTML = `
-        <span class="nea-modal-label">More Details</span>
-          <p class="nea-modal-value">${summaryDescriptions[title].details}</p>
-        `;
         }
 
         summaryModal.classList.add('active');

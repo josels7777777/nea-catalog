@@ -216,7 +216,7 @@
         } else {
             window.setInterval(function () {
                 logo.src = animatedLogoSrc + "?cycle=" + Date.now();
-            }, 20000);
+            }, 25000);
         }
     }
 

@@ -36,28 +36,28 @@
 
       <div class="nea-catalog-summary">
         <!-- Rentals: Focus on Speed and Availability -->
-        <div class="nea-summary-card">
+        <div class="nea-summary-card" data-summary-url="https://www.nationalexterioraccess.com/rentals">
           <span class="nea-summary-number">Rentals</span>
           <span class="nea-summary-label">High-performance swing stages and hoists for immediate project mobilization.</span>
           <button class="nea-summary-cta" type="button" aria-label="Learn more — Rentals">Learn more</button>
         </div>
 
-        <!-- Systems: Focus on Engineering and Longevity -->
-        <div class="nea-summary-card">
-          <span class="nea-summary-number">Systems</span>
+        <!-- Permanent Systems: Focus on Engineering and Longevity -->
+        <div class="nea-summary-card" data-summary-url="https://www.nationalexterioraccess.com/permanent-systems">
+          <span class="nea-summary-number">Permanent Systems</span>
           <span class="nea-summary-label">Permanent engineered anchors and lifelines designed for maximum building safety.</span>
-          <button class="nea-summary-cta" type="button" aria-label="Learn more — Systems">Learn more</button>
+          <button class="nea-summary-cta" type="button" aria-label="Learn more — Permanent Systems">Learn more</button>
         </div>
 
         <!-- Inspections: Focus on Law and Certification -->
-        <div class="nea-summary-card">
+        <div class="nea-summary-card" data-summary-url="https://www.nationalexterioraccess.com/inspections">
           <span class="nea-summary-number">Inspections</span>
           <span class="nea-summary-label">Certified load testing and P. Eng reports to ensure total regulatory compliance.</span>
           <button class="nea-summary-cta" type="button" aria-label="Learn more — Inspections">Learn more</button>
         </div>
 
         <!-- Training: Focus on Personnel and Readiness -->
-        <div class="nea-summary-card">
+        <div class="nea-summary-card" data-summary-url="https://www.nationalexterioraccess.com/training">
           <span class="nea-summary-number">Training</span>
           <span class="nea-summary-label">Professional hands-on certification to build safer and more efficient crews.</span>
           <button class="nea-summary-cta" type="button" aria-label="Learn more — Training">Learn more</button>
@@ -96,12 +96,13 @@
               <span class="nea-filter-count">65</span>
             </label>
 
-            <label class="nea-filter-chip" for="nea-filter-rentals" data-filter-parent="rentals" aria-expanded="false">
-              Rentals
-              <span class="nea-filter-count">28</span>
-            </label>
+            <div class="nea-filter-dropdown">
+              <label class="nea-filter-chip" for="nea-filter-rentals" data-filter-parent="rentals" aria-expanded="false" aria-controls="nea-filter-subgroups-rentals">
+                Rentals
+                <span class="nea-filter-count">28</span>
+              </label>
 
-            <div class="nea-filter-subgroups" id="nea-filter-subgroups-rentals" data-filter-subgroups="rentals" aria-label="Rental subgroups">
+              <div class="nea-filter-subgroups" id="nea-filter-subgroups-rentals" data-filter-subgroups="rentals" aria-label="Rental subgroups">
               <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Suspended Access Platforms">
                 Suspended Access Platforms
                 <span class="nea-filter-count">2</span>
@@ -142,14 +143,16 @@
                 Rental Support Services
                 <span class="nea-filter-count">4</span>
               </button>
+              </div>
             </div>
 
-            <label class="nea-filter-chip" for="nea-filter-permanent" data-filter-parent="permanent" aria-expanded="false">
-              Permanent Systems
-              <span class="nea-filter-count">26</span>
-            </label>
+            <div class="nea-filter-dropdown">
+              <label class="nea-filter-chip" for="nea-filter-permanent" data-filter-parent="permanent" aria-expanded="false" aria-controls="nea-filter-subgroups-permanent">
+                Permanent Systems
+                <span class="nea-filter-count">26</span>
+              </label>
 
-            <div class="nea-filter-subgroups" id="nea-filter-subgroups-permanent" data-filter-subgroups="permanent" aria-label="Permanent system subgroups">
+              <div class="nea-filter-subgroups" id="nea-filter-subgroups-permanent" data-filter-subgroups="permanent" aria-label="Permanent system subgroups">
               <button class="nea-filter-subgroup" type="button" data-filter-subgroup="Horizontal Lifeline Systems">
                 Horizontal Lifeline Systems
                 <span class="nea-filter-count">1</span>
@@ -202,6 +205,7 @@
                 Specialized Vertical Access Systems
                 <span class="nea-filter-count">1</span>
               </button>
+              </div>
             </div>
 
             <label class="nea-filter-chip" for="nea-filter-inspections">
@@ -775,14 +779,19 @@
           </p>
         </div>
 
-        <div class="nea-modal-section" id="summary-modal-details">
-          <!-- Additional details will be added here -->
+        <div class="nea-modal-section" id="summary-modal-cta">
+          <span class="nea-summary-modal-cta-label">Ready to explore?</span>
+          <p class="nea-summary-modal-cta-copy" id="summary-modal-cta-copy">View the complete category offering and project options.</p>
+          <a class="nea-summary-modal-link" id="summary-modal-link" href="#" aria-label="Explore category page">
+            <span id="summary-modal-link-text">Explore category</span>
+            <span class="nea-summary-modal-link-arrow" aria-hidden="true">&#8594;</span>
+          </a>
         </div>
       </div>
 
       <div class="nea-modal-footer">
-        <button class="nea-modal-btn" id="summary-modal-cancel">Close</button>
-        <button class="nea-modal-btn primary nea-card-action" id="summary-modal-contact">Contact</button>
+        <button class="nea-modal-btn" id="summary-modal-cancel" type="button">Close</button>
+        <button class="nea-modal-btn primary nea-card-action" id="summary-modal-contact" type="button">Contact</button>
       </div>
     </div>
   </div>
